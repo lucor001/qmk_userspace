@@ -1,7 +1,7 @@
-**lucor001's QMK Corne Rev 4.1 Keymap**
+# lucor001's QMK Corne Rev 4.1 Keymap
 
 
-**Original QMK Userpace documentation:**
+## Original QMK Userpace documentation:
 <details>
 # QMK Userspace
 
