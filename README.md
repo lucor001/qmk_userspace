@@ -9,6 +9,7 @@ This repository contains a fork of the qmk_userspace ([External Userspace](https
 1. Home row mods have been implemented by the [SM_TD](https://github.com/stasmarkin/sm_td) module by stasmarkin which seems to provide better accuracy.  This module is linked inside this repository.
 1. Base keyboard layer provides [Colmak-DH](https://colemakmods.github.io/mod-dh/) but through a double-tap (Tap Dance) QWERTY and DVORAK can also be accessed.
 1. The keyboard case was printed from two separate designs: [Case](https://www.printables.com/model/910711-corne-crkbd-split-keyboard-v41-new-case-with-renfo/files) and [Magnetic Tenting Legs](https://www.printables.com/model/1106860-corne-magnetic-tenting-legs).  I needed to use my slicer to expand the magnet holes in the case as my magnets were a bit larger.
+1. I also added foam to make the keyboard a little more solid. This is what I used: [Corne Foam](https://www.etsy.com/listing/1294857052/foam-mod-insert-for-corne-split)
 1. Low profile keycaps can be ordered for this keyboard as shown above.  I used [FK Caps](https://fkcaps.com/custom/WXW2UK) to create mine but there are other options.
 ![lucor001_keymap](https://github.com/user-attachments/assets/8b2c7342-3a5c-4ec1-9f9d-caee20572cfc)
 
