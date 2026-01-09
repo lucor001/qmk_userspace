@@ -20,10 +20,15 @@ This repository contains a fork of the qmk_userspace ([External Userspace](https
     git clone --recurse-submodules https://github.com/qmk/qmk_firmware.git
     ```
 1. Build the standard Corne keyboard using:
-   - `qmk compile -kb crkbd/rev4_1/standard -km default`
+   ```
+   qmk compile -kb crkbd/rev4_1/standard -km default
+   ```
 1. If you can successfully build the standard Corne keymap then it is time to fork this repository and clone it.  Here is the complete documentation: [External Userspace](https://docs.qmk.fm/newbs_external_userspace).
    - First, fork this repository as shown in the link but do it on this repository instead of qmk/qmk_userspace.
-   - Next, enable userspace in QMK config using `qmk config user.overlay_dir="$(realpath qmk_userspace)"`
+   - Next, enable userspace in QMK config using:
+   ```
+   qmk config user.overlay_dir="$(realpath qmk_userspace)"
+   ```
    - Finally, do the following inside the QMK environment to clone this repository:
     ```
     cd $HOME
@@ -31,11 +36,27 @@ This repository contains a fork of the qmk_userspace ([External Userspace](https
     qmk config user.overlay_dir="$(realpath qmk_userspace)"
     ```
 1. Now you should be able to build my keymap using:
-   - `qmk compile -kb crkbd/rev4_1/standard -km lucor001`
-1. Assuming the compile completed successfully (there are often 2 warnings but no errors) then you can add this keymap to the external userspace build target:
-   - `qmk userspace-add -kb <keyboard> -km <keymap>`
+   ```
+   qmk compile -kb crkbd/rev4_1/standard -km lucor001
+   ```
+1. Assuming the compile completed successfully (there are often 2 warnings but no errors) you can add your new keymap with:
+   ```
+   qmk new-keymap
+   ```
+1. Copy the `/keyboards/crkbd/rev4_1/keymaps/lucor001/` folder to `/keyboards/crkbd/rev4_1/keymaps/{your keymap}` and edit it as you desire.
+   - Compile again using:
+   ```
+   qmk compile -kb crkbd/rev4_1/standard -km {your keymap}
+   ```
+1. Now you can add this keymap to the External Userspace build target:
+   ```
+   qmk userspace-add -kb crkbd/rev4_1/standard -km {your keymap}
+   ```
    - This will update qmk.json which will allow GitHub to actually have a build workflow and build the source for you!  You will need to push qmk.json (and any other changes) back to your fork of this repository for this to work.  See the original documentation below for additional details.
-   - Also note that you can now use `qmk userspace-compile` to compile the firmware locally.
+   - Also note that you can now use this command to compile the firmware as your build target has been specified:
+   ```
+   qmk userspace-compile
+   ```
 1. At this point you just need to find the firmware *crkbd_rev4_1_standard_lucor001.uf2* inside the qmk_firmware directory and flash it to both halves of your keyboard.
    - For the left half, hold down the QWERTY "Q" key while plugging in the keyboard.  This is the key 1 right from the very top left key (and may be labeled something else).  This will open up a new USB flash device, simply drag the .uf2 file to this device.  It will automatically flash the firmware and disconnect the USB flash device.  After a short wait the keyboard will reboot and should turn on and connect as a keyboard.
    - For the right half, it is the same except use the QWERTY "P" key while plugging in the keyboard.  This is the key 1 left from the very top right key (and may be labeled something else).
