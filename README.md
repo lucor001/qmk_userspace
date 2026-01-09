@@ -1,9 +1,5 @@
 # lucor001's QMK Corne Rev 4.1 Keymap
-<picture>
- <source media="(prefers-color-scheme: dark)" srcset="lucor001_keymap.jpg">
- <source media="(prefers-color-scheme: light)" srcset="lucor001_keymap.jpg">
- <img alt="lucor001's QMK Corne Rev 4.1 Keymap Diagram" src="lucor001_keymap.jpg">
-</picture>
+![lucor001_keymap](https://github.com/user-attachments/assets/8b2c7342-3a5c-4ec1-9f9d-caee20572cfc)
 
 This repository contains a fork of the qmk_userspace in order to create the lucor001 QMK keymap.  Feel free to fork this repository and edit the files inside [\keyboards\crkbd\rev4_1\keymaps\lucor001](https://github.com/lucor001/qmk_userspace/tree/main/keyboards/crkbd/rev4_1/keymaps/lucor001) to your liking to create your own spin on this keymap!
 
@@ -23,7 +19,7 @@ This repository contains a fork of the qmk_userspace in order to create the luco
     ```
 1. Build the standard Corne keyboard using:
    - `qmk compile -kb crkbd/rev4_1/standard -km default`
-1. Assuming you can successfully build the standard Corne keymap now it is time to fork this repository and clone it.  Here is the complete documentation: [External Userspace](https://docs.qmk.fm/newbs_external_userspace).
+1. If you can successfully build the standard Corne keymap then it is time to fork this repository and clone it.  Here is the complete documentation: [External Userspace](https://docs.qmk.fm/newbs_external_userspace).
    - First fork this repository as shown in the link but do it on this repository instead of qmk/qmk_userspace.
    - Then do the following inside the QMK environment to clone this repository:
     ```
