@@ -5,18 +5,27 @@
  <img alt="lucor001's QMK Corne Rev 4.1 Keymap Diagram" src="lucor001_keymap.jpg">
 </picture>
 
-This repository contains a fork of the qmk_userspace in order to create the lucor001 QMK keymap.  
+This repository contains a fork of the qmk_userspace in order to create the lucor001 QMK keymap.  Feel free to fork this repository and edit the files inside [\keyboards\crkbd\rev4_1\keymaps\lucor001](https://github.com/lucor001/qmk_userspace/tree/main/keyboards/crkbd/rev4_1/keymaps/lucor001) to your liking to create your own spin on this keymap!
 
 ## Summary:
 1) This keymap was developed for the [Corne Rev 4.1](https://github.com/foostan/crkbd) by foostan.
-2) It is heavily inspired by [Miryoku](https://github.com/manna-harbour/miryoku).
-3) Home row mods have been implemented by the [SM_TD Module](https://github.com/stasmarkin/sm_td) by stasmarkin which seems to provide better accuracy.
+2) It is heavily inspired by [Miryoku](https://github.com/manna-harbour/miryoku).  This was where I started before doing a complete rewrite.
+3) Home row mods have been implemented by the [SM_TD](https://github.com/stasmarkin/sm_td) module by stasmarkin which seems to provide better accuracy.  This module is linked inside this repository.
 4) Base keyboard layer provides [Colmak-DH](https://colemakmods.github.io/mod-dh/) but through a double-tap (Tap Dance) QWERTY and DVORAK can also be accessed.
+5) Low profile keycaps can be ordered for this keyboard as shown above.  I used [FK Caps](https://fkcaps.com/custom/WXW2UK) to create mine but there are other options.
 
+## Instructions:
+1) Setup your own QMK environment [QMK Tutorial](https://docs.qmk.fm/newbs)
+    You should not need to actually fork qmk/qmk_firmware, simply cloning it is all you need to do
+3) Build the standard Corne keyboard using:
+`qmk compile -kb crkbd/rev4_1/standard -km default`
+4) 
 ## TODO:
 
 ### Original QMK Userpace documentation:
+
 <details>
+    
 # QMK Userspace
 
 This is a template repository which allows for an external set of QMK keymaps to be defined and compiled. This is useful for users who want to maintain their own keymaps without having to fork the main QMK repository.
