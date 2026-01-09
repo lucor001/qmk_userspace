@@ -57,7 +57,7 @@ This repository contains a fork of the qmk_userspace ([External Userspace](https
    ```
    qmk userspace-compile
    ```
-1. At this point you just need to find the firmware *crkbd_rev4_1_standard_lucor001.uf2* inside the qmk_firmware directory and flash it to both halves of your keyboard.
+1. At this point you just need to find the firmware crkbd_rev4_1_standard_*{your keymap}*.uf2 inside the qmk_firmware directory and flash it to both halves of your keyboard.
    - For the left half, hold down the QWERTY "Q" key while plugging in the keyboard.  This is the key 1 right from the very top left key (and may be labeled something else).  This will open up a new USB flash device, simply drag the .uf2 file to this device.  It will automatically flash the firmware and disconnect the USB flash device.  After a short wait the keyboard will reboot and should turn on and connect as a keyboard.
    - For the right half, it is the same except use the QWERTY "P" key while plugging in the keyboard.  This is the key 1 left from the very top right key (and may be labeled something else).
 
