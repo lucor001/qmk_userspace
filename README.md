@@ -22,8 +22,9 @@ This repository contains a fork of the qmk_userspace ([External Userspace](https
 1. Build the standard Corne keyboard using:
    - `qmk compile -kb crkbd/rev4_1/standard -km default`
 1. If you can successfully build the standard Corne keymap then it is time to fork this repository and clone it.  Here is the complete documentation: [External Userspace](https://docs.qmk.fm/newbs_external_userspace).
-   - First fork this repository as shown in the link but do it on this repository instead of qmk/qmk_userspace.
-   - Then do the following inside the QMK environment to clone this repository:
+   - First, fork this repository as shown in the link but do it on this repository instead of qmk/qmk_userspace.
+   - Next, enable userspace in QMK config using `qmk config user.overlay_dir="$(realpath qmk_userspace)"`
+   - Finally, do the following inside the QMK environment to clone this repository:
     ```
     cd $HOME
     git clone https://github.com/{myusername}/qmk_userspace.git
