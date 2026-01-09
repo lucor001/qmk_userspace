@@ -5,8 +5,9 @@
  <img alt="lucor001's QMK Corne Rev 4.1 Keymap Diagram" src="lucor001_keymap.jpg">
 </picture>
 
+This repository contains a fork of the qmk_userspace in order to create the lucor001 QMK keymap.  This keymap was developed for the [Corne Rev 4.1](https://github.com/foostan/crkbd) by foostan and is heavily inspired by [Miryoku](https://github.com/manna-harbour/miryoku).
 
-## Original QMK Userpace documentation:
+### Original QMK Userpace documentation:
 <details>
 # QMK Userspace
 
