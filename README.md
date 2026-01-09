@@ -34,7 +34,7 @@ This repository contains a fork of the qmk_userspace ([External Userspace](https
    - `qmk compile -kb crkbd/rev4_1/standard -km lucor001`
 1. Assuming the compile completed successfully (there are often 2 warnings but no errors) then you can add this keymap to the external userspace build target:
    - `qmk userspace-add -kb <keyboard> -km <keymap>`
-   - This will update qmk.json which will allow GitHub to actually have a build workflow and build the source for you!  See the original documentation below for additional details.
+   - This will update qmk.json which will allow GitHub to actually have a build workflow and build the source for you!  You will need to push qmk.json (and any other changes) back to your fork of this repository for this to work.  See the original documentation below for additional details.
    - Also note that you can now use `qmk userspace-compile` to compile the firmware locally.
 1. At this point you just need to find the firmware *crkbd_rev4_1_standard_lucor001.uf2* inside the qmk_firmware directory and flash it to both halves of your keyboard.
    - For the left half, hold down the QWERTY "Q" key while plugging in the keyboard.  This is the key 1 right from the very top left key (and may be labeled something else).  This will open up a new USB flash device, simply drag the .uf2 file to this device.  It will automatically flash the firmware and disconnect the USB flash device.  After a short wait the keyboard will reboot and should turn on and connect as a keyboard.
