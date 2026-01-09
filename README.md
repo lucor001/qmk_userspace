@@ -8,18 +8,39 @@
 This repository contains a fork of the qmk_userspace in order to create the lucor001 QMK keymap.  Feel free to fork this repository and edit the files inside [\keyboards\crkbd\rev4_1\keymaps\lucor001](https://github.com/lucor001/qmk_userspace/tree/main/keyboards/crkbd/rev4_1/keymaps/lucor001) to your liking to create your own spin on this keymap!
 
 ## Summary:
-1) This keymap was developed for the [Corne Rev 4.1](https://github.com/foostan/crkbd) by foostan.
-2) It is heavily inspired by [Miryoku](https://github.com/manna-harbour/miryoku).  This was where I started before doing a complete rewrite.
-3) Home row mods have been implemented by the [SM_TD](https://github.com/stasmarkin/sm_td) module by stasmarkin which seems to provide better accuracy.  This module is linked inside this repository.
-4) Base keyboard layer provides [Colmak-DH](https://colemakmods.github.io/mod-dh/) but through a double-tap (Tap Dance) QWERTY and DVORAK can also be accessed.
-5) Low profile keycaps can be ordered for this keyboard as shown above.  I used [FK Caps](https://fkcaps.com/custom/WXW2UK) to create mine but there are other options.
+1. This keymap was developed for the [Corne Rev 4.1](https://github.com/foostan/crkbd) by foostan.
+1. It is heavily inspired by [Miryoku](https://github.com/manna-harbour/miryoku).  This was where I started before doing a complete rewrite.
+1. Home row mods have been implemented by the [SM_TD](https://github.com/stasmarkin/sm_td) module by stasmarkin which seems to provide better accuracy.  This module is linked inside this repository.
+1. Base keyboard layer provides [Colmak-DH](https://colemakmods.github.io/mod-dh/) but through a double-tap (Tap Dance) QWERTY and DVORAK can also be accessed.
+1. Low profile keycaps can be ordered for this keyboard as shown above.  I used [FK Caps](https://fkcaps.com/custom/WXW2UK) to create mine but there are other options.
 
 ## Instructions:
-1) Setup your own QMK environment [QMK Tutorial](https://docs.qmk.fm/newbs)
-    You should not need to actually fork qmk/qmk_firmware, simply cloning it is all you need to do
-3) Build the standard Corne keyboard using:
-`qmk compile -kb crkbd/rev4_1/standard -km default`
-4) 
+1. Setup your own QMK environment [QMK Tutorial](https://docs.qmk.fm/newbs)
+   - You should not need to actually fork [qmk/qmk_firmware](https://github.com/qmk/qmk_firmware), simply cloning it locally is all you need to do and this is likely handled by `qmk setup` for you.  If by chance you actually messed up your local qmk_firmware area and need to clone it again, simply use:
+    ```
+    cd $HOME
+    git clone --recurse-submodules https://github.com/qmk/qmk_firmware.git
+    ```
+1. Build the standard Corne keyboard using:
+   - `qmk compile -kb crkbd/rev4_1/standard -km default`
+1. Assuming you can successfully build the standard Corne keymap now it is time to fork this repository and clone it.  Here is the complete documentation: [External Userspace](https://docs.qmk.fm/newbs_external_userspace).
+   - First fork this repository as shown in the link but do it on this repository instead of qmk/qmk_userspace.
+   - Then do the following inside the QMK environment to clone this repository:
+    ```
+    cd $HOME
+    git clone https://github.com/{myusername}/qmk_userspace.git
+    qmk config user.overlay_dir="$(realpath qmk_userspace)"
+    ```
+1. Now you should be able to build my keymap using:
+   - `qmk compile -kb crkbd/rev4_1/standard -km lucor001`
+1. Assuming the compile completed successfully (there are often 2 warnings but no errors) then you can add this keymap to the external userspace build target:
+   - `qmk userspace-add -kb <keyboard> -km <keymap>`
+   - This will update qmk.json which will allow GitHub to actually have a build workflow and build the source for you!  See the original documentation below for additional details.
+   - Also note that you can now use `qmk userspace-compile` to compile the firmware locally.
+1. At this point you just need to find the firmware *crkbd_rev4_1_standard_lucor001.uf2* inside the qmk_firmware directory and flash it to both halves of your keyboard.
+   - For the left half, hold down the QWERTY "Q" key while plugging in the keyboard.  This is the key 1 right from the very top left key (and may be labeled something else).  This will open up a new USB flash device, simply drag the .uf2 file to this device.  It will automatically flash the firmware and disconnect the USB flash device.  After a short wait the keyboard will reboot and should turn on and connect as a keyboard.
+   - For the right half, it is the same except use the QWERTY "P" key while plugging in the keyboard.  This is the key 1 left from the very top right key (and may be labeled something else).
+
 ## TODO:
 
 ### Original QMK Userpace documentation:
