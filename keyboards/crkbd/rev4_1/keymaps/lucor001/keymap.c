@@ -106,50 +106,66 @@ KEYBOARD_LAYER_LIST
 // SM Tap Dance feature to implement the home row mods
 smtd_resolution on_smtd_action(uint16_t keycode, smtd_action action, uint8_t tap_count) {
   switch (keycode) {
-      //COLMAK-DH Home Row Mods
-      SMTD_MT(KC_A, KC_LEFT_GUI, 2)
-      SMTD_MT(KC_R, KC_LEFT_ALT, 2)
-      SMTD_MT(KC_S, KC_LEFT_CTRL, 2)
-      SMTD_MT(KC_T, KC_LSFT, 2)
-      SMTD_MT(KC_N, KC_LSFT, 2)
-      SMTD_MT(KC_E, KC_LEFT_CTRL, 2)
-      SMTD_MT(KC_I, KC_ALGR, 2)
-      SMTD_MT(KC_O, KC_LEFT_GUI, 2)
-      //QWERTY Home Row Mods
+    // Here is another attempt to get layer lock working with SM_TD, currently unconfirmed:
+//    case QK_LLCK: {
+//      switch (action) {
+//          case SMTD_ACTION_TOUCH:
+//              break; // Not used
+//          case SMTD_ACTION_TAP:
+//              layer_lock_invert(get_highest_layer(layer_state));
+//              break;
+//          case SMTD_ACTION_HOLD:
+//              break; // Not used
+//          case SMTD_ACTION_RELEASE:
+//              break; // Not used
+//      } // end of switch (action)
+//        return SMTD_RESOLUTION_DETERMINED;
+//    } // end of case CUSTOM_KEYCODE_1
+
+    //COLMAK-DH Home Row Mods
+    SMTD_MT(KC_A, KC_LEFT_GUI, 2)
+    SMTD_MT(KC_R, KC_LEFT_ALT, 2)
+    SMTD_MT(KC_S, KC_LEFT_CTRL, 2)
+    SMTD_MT(KC_T, KC_LSFT, 2)
+    SMTD_MT(KC_N, KC_LSFT, 2)
+    SMTD_MT(KC_E, KC_LEFT_CTRL, 2)
+    SMTD_MT(KC_I, KC_ALGR, 2)
+    SMTD_MT(KC_O, KC_LEFT_GUI, 2)
+    //QWERTY Home Row Mods
 //        SMTD_MT(CKC_A, KC_A, KC_LEFT_GUI)
-      SMTD_MT_ON_MKEY(CKC_SE, KC_S, KC_LEFT_ALT, 2)
-      SMTD_MT(KC_D, KC_LEFT_CTRL, 2)
-      SMTD_MT(KC_F, KC_LSFT, 2)
-      SMTD_MT(KC_J, KC_LSFT, 2)
-      SMTD_MT(KC_K, KC_LEFT_CTRL, 2)
-      SMTD_MT(KC_L, KC_ALGR, 2)
-      SMTD_MT(KC_SCLN, KC_LEFT_GUI, 2)
-      //Dvorak Home Row Mods
+    SMTD_MT_ON_MKEY(CKC_SE, KC_S, KC_LEFT_ALT, 2)
+    SMTD_MT(KC_D, KC_LEFT_CTRL, 2)
+    SMTD_MT(KC_F, KC_LSFT, 2)
+    SMTD_MT(KC_J, KC_LSFT, 2)
+    SMTD_MT(KC_K, KC_LEFT_CTRL, 2)
+    SMTD_MT(KC_L, KC_ALGR, 2)
+    SMTD_MT(KC_SCLN, KC_LEFT_GUI, 2)
+    //Dvorak Home Row Mods
 //      SMTD_MT(CKC_A, KC_A, KC_LEFT_GUI, 2)
-      SMTD_MT_ON_MKEY(CKC_OD, KC_O, KC_LEFT_ALT, 2)
-      SMTD_MT_ON_MKEY(CKC_ED, KC_E, KC_LEFT_CTRL, 2)
-      SMTD_MT_ON_MKEY(CKC_UD, KC_U, KC_LSFT, 2)
-      SMTD_MT_ON_MKEY(CKC_HD, KC_H, KC_LSFT, 2)
-      SMTD_MT_ON_MKEY(CKC_TD, KC_T, KC_LEFT_CTRL, 2)
-      SMTD_MT_ON_MKEY(CKC_ND, KC_N, KC_ALGR, 2)
-      SMTD_MT_ON_MKEY(CKC_SD, KC_S, KC_LEFT_GUI, 2)
-      //Non homerow keys
-      SMTD_LT(KC_Z, U_BUTTON, 2)
-      SMTD_LT(KC_X, KC_RIGHT_ALT, 2)
-      SMTD_LT(KC_DOT, KC_RIGHT_ALT, 2)
-      SMTD_LT(KC_SLSH, U_BUTTON, 2)
-      //Non homerow keys dvorak
-      SMTD_LT_ON_MKEY(CKC_SCLND, KC_SCLN, U_BUTTON, 2)
-      SMTD_LT_ON_MKEY(CKC_QD, KC_Q, KC_RIGHT_ALT, 2)
-      SMTD_LT_ON_MKEY(CKC_VD, KC_V, KC_RIGHT_ALT, 2)
-      SMTD_LT_ON_MKEY(CKC_ZD, KC_Z, U_BUTTON, 2)
-      //Thumb keys (Not Used because these are not compatible with Layer Lock function)
-      SMTD_LT_ON_MKEY(CKC_ESC, KC_ESC, U_SYM, 2)
-      SMTD_LT_ON_MKEY(CKC_TAB, KC_TAB, U_NAV, 2)
-      SMTD_LT_ON_MKEY(CKC_ENT, KC_ENT, U_NUM, 2)
-      SMTD_LT_ON_MKEY(CKC_SPC, KC_SPC, U_MOUSE, 2)
-      SMTD_LT_ON_MKEY(CKC_BSPC, KC_BSPC, U_MEDIA, 2)
-      SMTD_LT_ON_MKEY(CKC_DEL, KC_DEL, U_FUN, 2)
+    SMTD_MT_ON_MKEY(CKC_OD, KC_O, KC_LEFT_ALT, 2)
+    SMTD_MT_ON_MKEY(CKC_ED, KC_E, KC_LEFT_CTRL, 2)
+    SMTD_MT_ON_MKEY(CKC_UD, KC_U, KC_LSFT, 2)
+    SMTD_MT_ON_MKEY(CKC_HD, KC_H, KC_LSFT, 2)
+    SMTD_MT_ON_MKEY(CKC_TD, KC_T, KC_LEFT_CTRL, 2)
+    SMTD_MT_ON_MKEY(CKC_ND, KC_N, KC_ALGR, 2)
+    SMTD_MT_ON_MKEY(CKC_SD, KC_S, KC_LEFT_GUI, 2)
+    //Non homerow keys
+    SMTD_LT(KC_Z, U_BUTTON, 2)
+    SMTD_LT(KC_X, KC_RIGHT_ALT, 2)
+    SMTD_LT(KC_DOT, KC_RIGHT_ALT, 2)
+    SMTD_LT(KC_SLSH, U_BUTTON, 2)
+    //Non homerow keys dvorak
+    SMTD_LT_ON_MKEY(CKC_SCLND, KC_SCLN, U_BUTTON, 2)
+    SMTD_LT_ON_MKEY(CKC_QD, KC_Q, KC_RIGHT_ALT, 2)
+    SMTD_LT_ON_MKEY(CKC_VD, KC_V, KC_RIGHT_ALT, 2)
+    SMTD_LT_ON_MKEY(CKC_ZD, KC_Z, U_BUTTON, 2)
+    //Thumb keys (Not Used because these are not compatible with Layer Lock function)
+    SMTD_LT_ON_MKEY(CKC_ESC, KC_ESC, U_SYM, 2)
+    SMTD_LT_ON_MKEY(CKC_TAB, KC_TAB, U_NAV, 2)
+    SMTD_LT_ON_MKEY(CKC_ENT, KC_ENT, U_NUM, 2)
+    SMTD_LT_ON_MKEY(CKC_SPC, KC_SPC, U_MOUSE, 2)
+    SMTD_LT_ON_MKEY(CKC_BSPC, KC_BSPC, U_MEDIA, 2)
+    SMTD_LT_ON_MKEY(CKC_DEL, KC_DEL, U_FUN, 2)
   }
     return SMTD_RESOLUTION_UNHANDLED;
 };
