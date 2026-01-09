@@ -166,7 +166,7 @@ smtd_resolution on_smtd_action(uint16_t keycode, smtd_action action, uint8_t tap
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //COLMAK-DH layout with home row special keys
     //Expanded Miryoku for this keyboard, adds outside columns and 4 keys in the middle
-  [U_BASE] = LAYOUT_split_3x6_3_ex2(
+  [U_COLMAKDH] = LAYOUT_split_3x6_3_ex2(
    KC_ESC,  KC_Q,   KC_W,  KC_F,             KC_P,             KC_B,          QK_LLCK,            QK_LLCK,                KC_J,             KC_L,    KC_U,    KC_Y,  KC_SCLN, KC_BSPC,
    KC_TAB,  KC_A,   KC_R,  KC_S,             KC_T,             KC_G,          QK_LOCK,            QK_LOCK,                KC_M,             KC_N,    KC_E,    KC_I,     KC_O, KC_QUOT,
   KC_LSFT,  KC_Z,   KC_X,  KC_C,             KC_D,             KC_V,                                                      KC_K,             KC_H, KC_COMM,  KC_DOT,  KC_SLSH, KC_RSFT,
@@ -174,19 +174,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                  LT(U_SYM,KC_ESC), LT(U_NAV,KC_TAB), LT(U_NUM,KC_ENT), LT(U_MOUSE,KC_SPC), LT(U_MEDIA,KC_BSPC), LT(U_FUN,KC_DEL)
   ),
   [U_NUM] = LAYOUT_split_3x6_3_ex2(
-   KC_ESC, TD(U_TD_BOOT), TD(U_TD_U_TAP), TD(U_TD_U_EXTRA), TD(U_TD_U_BASE), TD(U_TD_U_DVORAK), QK_LLCK, QK_LLCK, KC_LBRC,    KC_7, KC_8, KC_9, KC_RBRC, KC_BSPC,
-   KC_TAB,          KC_A,           KC_R,             KC_S,            KC_T,             KC_NO, QK_LOCK, QK_LOCK, KC_COLN,    KC_4, KC_5, KC_6,  KC_EQL, KC_QUOT,
-  KC_LSFT,         KC_NO,        KC_ALGR, TD(U_TD_U_MOUSE),  TD(U_TD_U_NUM),             KC_NO,                    KC_GRV,    KC_1, KC_2, KC_3, KC_BSLS, KC_RSFT,
-                                                                      KC_NO,             KC_NO,   KC_NO,  KC_DOT,    KC_0, KC_MINS
+   KC_ESC, TD(U_TD_BOOT), TD(U_TD_U_TAP), TD(U_TD_U_QWERTY), TD(U_TD_U_COLMAKDH), TD(U_TD_U_DVORAK), QK_LLCK, QK_LLCK, KC_LBRC,    KC_7, KC_8, KC_9, KC_RBRC, KC_BSPC,
+   KC_TAB,          KC_A,           KC_R,              KC_S,                KC_T,             KC_NO, QK_LOCK, QK_LOCK, KC_COLN,    KC_4, KC_5, KC_6,  KC_EQL, KC_QUOT,
+  KC_LSFT,         KC_NO,        KC_ALGR,  TD(U_TD_U_MOUSE),      TD(U_TD_U_NUM),             KC_NO,                    KC_GRV,    KC_1, KC_2, KC_3, KC_BSLS, KC_RSFT,
+                                                                           KC_NO,             KC_NO,   KC_NO,  KC_DOT,    KC_0, KC_MINS
   ),
   [U_SYM] = LAYOUT_split_3x6_3_ex2(
-   KC_ESC, TD(U_TD_BOOT), TD(U_TD_U_TAP), TD(U_TD_U_EXTRA), TD(U_TD_U_BASE), TD(U_TD_U_DVORAK), QK_LLCK, QK_LLCK, KC_LBRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_BSPC,
-   KC_TAB,          KC_A,           KC_R,             KC_S,            KC_T,             KC_NO, QK_LOCK, QK_LOCK, KC_SCLN,  KC_DLR, KC_PERC, KC_CIRC, KC_PLUS, KC_QUOT,
-  KC_LSFT,         KC_NO,        KC_ALGR,   TD(U_TD_U_FUN),  TD(U_TD_U_SYM),             KC_NO,                   KC_TILD, KC_EXLM,   KC_AT, KC_HASH, KC_PIPE, KC_RSFT,
-                                                                      KC_NO,             KC_NO,   KC_NO, KC_LPRN, KC_RPRN, KC_UNDS
+   KC_ESC, TD(U_TD_BOOT), TD(U_TD_U_TAP), TD(U_TD_U_QWERTY), TD(U_TD_U_COLMAKDH), TD(U_TD_U_DVORAK), QK_LLCK, QK_LLCK, KC_LBRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_BSPC,
+   KC_TAB,          KC_A,           KC_R,              KC_S,                KC_T,             KC_NO, QK_LOCK, QK_LOCK, KC_SCLN,  KC_DLR, KC_PERC, KC_CIRC, KC_PLUS, KC_QUOT,
+  KC_LSFT,         KC_NO,        KC_ALGR,    TD(U_TD_U_FUN),      TD(U_TD_U_SYM),             KC_NO,                   KC_TILD, KC_EXLM,   KC_AT, KC_HASH, KC_PIPE, KC_RSFT,
+                                                                           KC_NO,             KC_NO,   KC_NO, KC_LPRN, KC_RPRN, KC_UNDS
   ),
   [U_FUN] = LAYOUT_split_3x6_3_ex2(
-   KC_ESC, KC_F12, KC_F7, KC_F8,  KC_F9, KC_PSCR, QK_LLCK, QK_LLCK, TD(U_TD_BOOT), TD(U_TD_U_TAP), TD(U_TD_U_EXTRA), TD(U_TD_U_BASE), TD(U_TD_U_DVORAK), KC_BSPC,
+   KC_ESC, KC_F12, KC_F7, KC_F8,  KC_F9, KC_PSCR, QK_LLCK, QK_LLCK, TD(U_TD_BOOT), TD(U_TD_U_TAP), TD(U_TD_U_QWERTY), TD(U_TD_U_COLMAKDH), TD(U_TD_U_DVORAK), KC_BSPC,
   KC_CAPS, KC_F11, KC_F4, KC_F5,  KC_F6, KC_SCRL, QK_LOCK, QK_LOCK,         KC_NO,           KC_N,             KC_E,            KC_I,  KC_O, KC_QUOT,
   KC_LSFT, KC_F10, KC_F1, KC_F2,  KC_F3, KC_PAUS,                         KC_ALGR, TD(U_TD_U_FUN),   TD(U_TD_U_SYM),  KC_NO, KC_RSFT, KC_NO,
                                  KC_APP,  KC_SPC,  KC_TAB,   KC_NO,         KC_NO,          KC_NO
@@ -198,18 +198,18 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                 MS_BTN3, MS_BTN1, MS_BTN2, MS_BTN2, MS_BTN1, MS_BTN3
   ),
   [U_NAV] = LAYOUT_split_3x6_3_ex2(
-    KC_ESC, TD(U_TD_BOOT), TD(U_TD_U_TAP), TD(U_TD_U_EXTRA), TD(U_TD_U_BASE), TD(U_TD_U_DVORAK), QK_LLCK, QK_LLCK,  KC_INS, KC_HOME,   KC_UP,  KC_END, KC_PGUP, KC_BSPC,
-    KC_TAB,          KC_A,           KC_R,             KC_S,            KC_T,             KC_NO, QK_LOCK, QK_LOCK, CW_TOGG, KC_LEFT, KC_DOWN, KC_RGHT, KC_PGDN, KC_QUOT,
-   KC_LSFT,         KC_NO,        KC_ALGR, TD(U_TD_U_MEDIA),  TD(U_TD_U_NAV),             KC_NO,                     U_RDO,   U_PST,   U_CPY,   U_CUT,   U_UND, KC_RSFT,
-                                                                       KC_NO,             KC_NO,   KC_NO,  KC_ENT, KC_BSPC,  KC_DEL
+    KC_ESC, TD(U_TD_BOOT), TD(U_TD_U_TAP), TD(U_TD_U_QWERTY), TD(U_TD_U_COLMAKDH), TD(U_TD_U_DVORAK), QK_LLCK, QK_LLCK,  KC_INS, KC_HOME,   KC_UP,  KC_END, KC_PGUP, KC_BSPC,
+    KC_TAB,          KC_A,           KC_R,              KC_S,                KC_T,             KC_NO, QK_LOCK, QK_LOCK, CW_TOGG, KC_LEFT, KC_DOWN, KC_RGHT, KC_PGDN, KC_QUOT,
+   KC_LSFT,         KC_NO,        KC_ALGR,  TD(U_TD_U_MEDIA),      TD(U_TD_U_NAV),             KC_NO,                     U_RDO,   U_PST,   U_CPY,   U_CUT,   U_UND, KC_RSFT,
+                                                                            KC_NO,             KC_NO,   KC_NO,  KC_ENT, KC_BSPC,  KC_DEL
   ),
   [U_MOUSE] = LAYOUT_split_3x6_3_ex2(
-    KC_ESC, TD(U_TD_BOOT), TD(U_TD_U_TAP), TD(U_TD_U_EXTRA),  TD(U_TD_U_BASE), TD(U_TD_U_DVORAK), QK_LLCK, QK_LLCK,   KC_NO, MS_WHLL,   MS_UP, MS_WHLR, MS_WHLU, KC_BSPC,
-    KC_TAB,          KC_A,           KC_R,             KC_S,             KC_T,             KC_NO, QK_LOCK, QK_LOCK,   KC_NO, MS_LEFT, MS_DOWN, MS_RGHT, MS_WHLD, KC_QUOT,
-   KC_LSFT,         KC_NO,        KC_ALGR,   TD(U_TD_U_NUM), TD(U_TD_U_MOUSE),             KC_NO,                     U_RDO,   U_PST,   U_CPY,   U_CUT,   U_UND, KC_RSFT,
-                                                                      MS_BTN3,           MS_BTN1, MS_BTN2,   KC_NO,   KC_NO,   KC_NO
+    KC_ESC, TD(U_TD_BOOT), TD(U_TD_U_TAP), TD(U_TD_U_QWERTY),  TD(U_TD_U_COLMAKDH), TD(U_TD_U_DVORAK), QK_LLCK, QK_LLCK,   KC_NO, MS_WHLL,   MS_UP, MS_WHLR, MS_WHLU, KC_BSPC,
+    KC_TAB,          KC_A,           KC_R,              KC_S,                 KC_T,             KC_NO, QK_LOCK, QK_LOCK,   KC_NO, MS_LEFT, MS_DOWN, MS_RGHT, MS_WHLD, KC_QUOT,
+   KC_LSFT,         KC_NO,        KC_ALGR,    TD(U_TD_U_NUM),     TD(U_TD_U_MOUSE),             KC_NO,                     U_RDO,   U_PST,   U_CPY,   U_CUT,   U_UND, KC_RSFT,
+                                                                           MS_BTN3,           MS_BTN1, MS_BTN2,   KC_NO,   KC_NO,   KC_NO
   ),
-  [U_EXTRA] = LAYOUT_split_3x6_3_ex2(
+  [U_QWERTY] = LAYOUT_split_3x6_3_ex2(
    KC_ESC,  KC_Q,   KC_W,  KC_E,    KC_R,    KC_T, QK_LLCK, QK_LLCK,     KC_Y,    KC_U,    KC_I,    KC_O,     KC_P, KC_BSPC,
    KC_TAB,  KC_A, CKC_SE,  KC_D,    KC_F,    KC_G, QK_LOCK, QK_LOCK,     KC_H,    KC_J,    KC_K,    KC_L,  KC_SCLN, KC_QUOT,
   KC_LSFT,  KC_Z,   KC_X,  KC_C,    KC_V,    KC_B,                       KC_N,    KC_M, KC_COMM,  KC_DOT,  KC_SLSH, KC_RSFT,
@@ -217,70 +217,87 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                         LT(U_SYM,KC_ESC),  LT(U_NAV,KC_TAB), LT(U_NUM,KC_ENT), LT(U_MOUSE,KC_SPC),  LT(U_MEDIA,KC_BSPC), LT(U_FUN,KC_DEL)
   ),
   [U_MEDIA] = LAYOUT_split_3x6_3_ex2(
-   KC_ESC, TD(U_TD_BOOT), TD(U_TD_U_TAP), TD(U_TD_U_EXTRA),  TD(U_TD_U_BASE), TD(U_TD_U_DVORAK), QK_LLCK, QK_LLCK, RM_TOGG, RM_NEXT, RM_HUEU, RM_SATU, RM_VALU, KC_BSPC,
-   KC_TAB,          KC_A,           KC_R,             KC_S,             KC_T,             KC_NO, QK_LOCK, QK_LOCK,   KC_NO, KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT, KC_QUOT,
-  KC_LSFT,         KC_NO,        KC_ALGR,   TD(U_TD_U_NAV), TD(U_TD_U_MEDIA),             KC_NO,                   OU_AUTO,   KC_NO,   KC_NO,   KC_NO,   KC_NO, KC_RSFT,
-                                                                     KC_MSTP,           KC_MPLY, KC_MUTE,   KC_NO,   KC_NO,   KC_NO
+   KC_ESC, TD(U_TD_BOOT), TD(U_TD_U_TAP), TD(U_TD_U_QWERTY),  TD(U_TD_U_COLMAKDH), TD(U_TD_U_DVORAK), QK_LLCK, QK_LLCK, RM_TOGG, RM_NEXT, RM_HUEU, RM_SATU, RM_VALU, KC_BSPC,
+   KC_TAB,          KC_A,           KC_R,              KC_S,                 KC_T,             KC_NO, QK_LOCK, QK_LOCK,   KC_NO, KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT, KC_QUOT,
+  KC_LSFT,         KC_NO,        KC_ALGR,    TD(U_TD_U_NAV),     TD(U_TD_U_MEDIA),             KC_NO,                   OU_AUTO,   KC_NO,   KC_NO,   KC_NO,   KC_NO, KC_RSFT,
+                                                                          KC_MSTP,           KC_MPLY, KC_MUTE,   KC_NO,   KC_NO,   KC_NO
   ),
   [U_TAP] = LAYOUT_split_3x6_3_ex2(
-   KC_ESC, KC_Q, KC_W, KC_F,   KC_P,   KC_B,  TD(U_TD_U_BASE),     TD(U_TD_BOOT),    KC_J,   KC_L,    KC_U,   KC_Y, KC_SCLN, KC_BSPC,
-   KC_TAB, KC_A, KC_R, KC_S,   KC_T,   KC_G, TD(U_TD_U_EXTRA), TD(U_TD_U_DVORAK),    KC_M,   KC_N,    KC_E,   KC_I,    KC_O, KC_QUOT,
-  KC_LSFT, KC_Z, KC_X, KC_C,   KC_D,   KC_V,                                         KC_K,   KC_H, KC_COMM, KC_DOT, KC_SLSH, KC_RSFT,
-                             KC_ESC, KC_TAB,           KC_ENT,            KC_SPC, KC_BSPC, KC_DEL
+   KC_ESC, KC_Q, KC_W, KC_F,   KC_P,   KC_B,  TD(U_TD_U_COLMAKDH),     TD(U_TD_BOOT),    KC_J,   KC_L,    KC_U,   KC_Y, KC_SCLN, KC_BSPC,
+   KC_TAB, KC_A, KC_R, KC_S,   KC_T,   KC_G,    TD(U_TD_U_QWERTY), TD(U_TD_U_DVORAK),    KC_M,   KC_N,    KC_E,   KC_I,    KC_O, KC_QUOT,
+  KC_LSFT, KC_Z, KC_X, KC_C,   KC_D,   KC_V,                                             KC_K,   KC_H, KC_COMM, KC_DOT, KC_SLSH, KC_RSFT,
+                             KC_ESC, KC_TAB,               KC_ENT,            KC_SPC, KC_BSPC, KC_DEL
   ),
   [U_DVORAK] = LAYOUT_split_3x6_3_ex2(
-    KC_ESC,   KC_QUOT, KC_COMM, KC_DOT,    KC_P,    KC_Y, QK_LLCK, QK_LLCK,     KC_F,    KC_G,   KC_C,   KC_R,   KC_L, KC_BSPC,
-    KC_TAB,      KC_A,  CKC_OD, CKC_ED,  CKC_UD,    KC_I, QK_LOCK, QK_LOCK,     KC_D,  CKC_HD, CKC_TD, CKC_ND, CKC_SD, KC_SLSH,
-   KC_LSFT, CKC_SCLND,  CKC_QD,   KC_J,    KC_K,    KC_X,                       KC_B,    KC_M,   KC_W, CKC_VD, CKC_ZD, KC_RSFT,
+    KC_ESC,   KC_QUOT, KC_COMM, KC_DOT,    KC_P,              KC_Y,          QK_LLCK,            QK_LLCK,                 KC_F,    KC_G,   KC_C,   KC_R,   KC_L, KC_BSPC,
+    KC_TAB,      KC_A,  CKC_OD, CKC_ED,  CKC_UD,              KC_I,          QK_LOCK,            QK_LOCK,                 KC_D,  CKC_HD, CKC_TD, CKC_ND, CKC_SD, KC_SLSH,
+   KC_LSFT, CKC_SCLND,  CKC_QD,   KC_J,    KC_K,              KC_X,                                                       KC_B,    KC_M,   KC_W, CKC_VD, CKC_ZD, KC_RSFT,
 //                                        CKC_ESC, CKC_TAB, CKC_ENT, CKC_SPC, CKC_BSPC, CKC_DEL
                                LT(U_SYM,KC_ESC),  LT(U_NAV,KC_TAB), LT(U_NUM,KC_ENT), LT(U_MOUSE,KC_SPC),  LT(U_MEDIA,KC_BSPC), LT(U_FUN,KC_DEL)
   ),
 };
 
 bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
+  hsv_t hsv_g = {85, 255, 128}; //Green, max saturation, 50% brightness
+  hsv_t hsv_b = {169, 255, 128}; //Blue, max saturation, 50% brightness
+  hsv_t hsv_w = {0, 0, 255}; //White, max saturation, 100% brightness
+  if (hsv_g.v > rgb_matrix_get_val()) {
+    hsv_g.v = rgb_matrix_get_val();
+  }
+  if (hsv_b.v > rgb_matrix_get_val()) {
+    hsv_b.v = rgb_matrix_get_val();
+  }
+  if (hsv_w.v > rgb_matrix_get_val()) {
+    hsv_w.v = rgb_matrix_get_val();
+  }
+  rgb_t rgb_g = hsv_to_rgb(hsv_g);
+  rgb_t rgb_b = hsv_to_rgb(hsv_b);
+  rgb_t rgb_w = hsv_to_rgb(hsv_w);
+
+
   for (uint8_t i = led_min; i < led_max; i++) {
     uint8_t layer = get_highest_layer(layer_state|default_layer_state);
     switch(layer) {
-        case U_EXTRA:
-          rgb_matrix_set_color(i, RGB_GREEN);
+        case U_QWERTY:
+          rgb_matrix_set_color(i, rgb_g.r, rgb_g.g, rgb_g.b);
           break;
         case U_DVORAK:
-          rgb_matrix_set_color(i, RGB_BLUE);
+          rgb_matrix_set_color(i, rgb_b.r, rgb_b.g, rgb_b.b);
           break;
         case U_NUM:
-          RGB_MATRIX_INDICATOR_SET_COLOR(0, 255, 255, 255); // Turn Number key white
+          RGB_MATRIX_INDICATOR_SET_COLOR(0, rgb_w.r, rgb_w.g, rgb_w.b); // Turn Number key white
           break;
         case U_NAV:
-          RGB_MATRIX_INDICATOR_SET_COLOR(7, 255, 255, 255); // Turn Number key white
+          RGB_MATRIX_INDICATOR_SET_COLOR(7, rgb_w.r, rgb_w.g, rgb_w.b); // Turn Number key white
           break;
         case U_SYM:
-          RGB_MATRIX_INDICATOR_SET_COLOR(8, 255, 255, 255); // Turn Number key white
+          RGB_MATRIX_INDICATOR_SET_COLOR(8, rgb_w.r, rgb_w.g, rgb_w.b); // Turn Number key white
           break;
         case U_MOUSE:
-          RGB_MATRIX_INDICATOR_SET_COLOR(23, 255, 255, 255); // Turn Number key white
+          RGB_MATRIX_INDICATOR_SET_COLOR(23, rgb_w.r, rgb_w.g, rgb_w.b); // Turn Number key white
           break;
         case U_MEDIA:
-          RGB_MATRIX_INDICATOR_SET_COLOR(30, 255, 255, 255); // Turn Number key white
+          RGB_MATRIX_INDICATOR_SET_COLOR(30, rgb_w.r, rgb_w.g, rgb_w.b); // Turn Number key white
           break;
         case U_FUN:
-          RGB_MATRIX_INDICATOR_SET_COLOR(31, 255, 255, 255); // Turn Number key white
+          RGB_MATRIX_INDICATOR_SET_COLOR(31, rgb_w.r, rgb_w.g, rgb_w.b); // Turn Number key white
           break;
         case U_BUTTON:
         //NOTE: This layer is implemented by SMTD which means it does not work with Layer Lock (QK_LLCK)
-          RGB_MATRIX_INDICATOR_SET_COLOR(15, 255, 255, 255); // Turn Number key white
-          RGB_MATRIX_INDICATOR_SET_COLOR(38, 255, 255, 255); // Turn Number key white
+          RGB_MATRIX_INDICATOR_SET_COLOR(15, rgb_w.r, rgb_w.g, rgb_w.b); // Turn Number key white
+          RGB_MATRIX_INDICATOR_SET_COLOR(38, rgb_w.r, rgb_w.g, rgb_w.b); // Turn Number key white
           break;
-        case U_BASE:
+        case U_COLMAKDH:
         case U_TAP:
         default:
             break;
     }
   }
   if (host_keyboard_led_state().caps_lock) {
-    RGB_MATRIX_INDICATOR_SET_COLOR(19, 255, 255, 255); // Turn Caps Lock key white
+    RGB_MATRIX_INDICATOR_SET_COLOR(19, rgb_w.r, rgb_w.g, rgb_w.b); // Turn Caps Lock key white
   }
   if (host_keyboard_led_state().scroll_lock) {
-    RGB_MATRIX_INDICATOR_SET_COLOR(2, 255, 255, 255); // Turn Scroll Lock key white
+    RGB_MATRIX_INDICATOR_SET_COLOR(2, rgb_w.r, rgb_w.g, rgb_w.b); // Turn Scroll Lock key white
   }
   return false;
 }
@@ -318,8 +335,8 @@ bool oled_task_user() {
 
     // Switch on current active layer
     switch (get_highest_layer(layer_state)) {
-        case U_BASE :
-            oled_write("Base Layer", false);
+        case U_COLMAKDH :
+            oled_write("COLMAKDH Layer", false);
             break;
         case U_NUM :
             oled_write("Number Layer", false);
@@ -342,7 +359,7 @@ bool oled_task_user() {
         case U_TAP :
             oled_write("Tap Layer", false);
             break;
-        case U_EXTRA :
+        case U_QWERTY :
             oled_write("QWERTY Layer", false);
             break;
         case U_DVORAK :
