@@ -1,17 +1,19 @@
 # lucor001's QMK Corne Rev 4.1 Keymap
-![lucor001_keymap](https://github.com/user-attachments/assets/8b2c7342-3a5c-4ec1-9f9d-caee20572cfc)
+<img width="1367" height="693" alt="image" src="https://github.com/user-attachments/assets/907d8da2-c175-4e82-b163-0b75ec646094" />
 
-This repository contains a fork of the qmk_userspace in order to create the lucor001 QMK keymap.  Feel free to fork this repository and edit the files inside [\keyboards\crkbd\rev4_1\keymaps\lucor001](https://github.com/lucor001/qmk_userspace/tree/main/keyboards/crkbd/rev4_1/keymaps/lucor001) to your liking to create your own spin on this keymap!
+This repository contains a fork of the qmk_userspace ([External Userspace](https://docs.qmk.fm/newbs_external_userspace)) in order to create the lucor001 QMK keymap.  Feel free to fork this repository and edit the files inside [\keyboards\crkbd\rev4_1\keymaps\lucor001](https://github.com/lucor001/qmk_userspace/tree/main/keyboards/crkbd/rev4_1/keymaps/lucor001) to your liking to create your own spin on this keymap!
 
 ## Summary:
 1. This keymap was developed for the [Corne Rev 4.1](https://github.com/foostan/crkbd) by foostan.
 1. It is heavily inspired by [Miryoku](https://github.com/manna-harbour/miryoku).  This was where I started before doing a complete rewrite.
 1. Home row mods have been implemented by the [SM_TD](https://github.com/stasmarkin/sm_td) module by stasmarkin which seems to provide better accuracy.  This module is linked inside this repository.
 1. Base keyboard layer provides [Colmak-DH](https://colemakmods.github.io/mod-dh/) but through a double-tap (Tap Dance) QWERTY and DVORAK can also be accessed.
+1. The keyboard case was printed from two separate designs: [Case](https://www.printables.com/model/910711-corne-crkbd-split-keyboard-v41-new-case-with-renfo/files) and [Magnetic Tenting Legs](https://www.printables.com/model/1106860-corne-magnetic-tenting-legs).  I needed to use my slicer to expand the magnet holes in the case as my magnets were a bit larger.
 1. Low profile keycaps can be ordered for this keyboard as shown above.  I used [FK Caps](https://fkcaps.com/custom/WXW2UK) to create mine but there are other options.
+![lucor001_keymap](https://github.com/user-attachments/assets/8b2c7342-3a5c-4ec1-9f9d-caee20572cfc)
 
 ## Instructions:
-1. Setup your own QMK environment [QMK Tutorial](https://docs.qmk.fm/newbs)
+1. Setup your own QMK environment ([QMK Tutorial](https://docs.qmk.fm/newbs))
    - You should not need to actually fork [qmk/qmk_firmware](https://github.com/qmk/qmk_firmware), simply cloning it locally is all you need to do and this is likely handled by `qmk setup` for you.  If by chance you actually messed up your local qmk_firmware area and need to clone it again, simply use:
     ```
     cd $HOME
