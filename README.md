@@ -1,4 +1,9 @@
 # lucor001's QMK Corne Rev 4.1 Keymap
+<picture>
+ <source media="(prefers-color-scheme: dark)" srcset="lucor001_keymap.jpg">
+ <source media="(prefers-color-scheme: light)" srcset="lucor001_keymap.jpg">
+ <img alt="lucor001's QMK Corne Rev 4.1 Keymap Diagram" src="lucor001_keymap.jpg">
+</picture>
 
 
 ## Original QMK Userpace documentation:
