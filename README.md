@@ -5,7 +5,15 @@
  <img alt="lucor001's QMK Corne Rev 4.1 Keymap Diagram" src="lucor001_keymap.jpg">
 </picture>
 
-This repository contains a fork of the qmk_userspace in order to create the lucor001 QMK keymap.  This keymap was developed for the [Corne Rev 4.1](https://github.com/foostan/crkbd) by foostan and is heavily inspired by [Miryoku](https://github.com/manna-harbour/miryoku).
+This repository contains a fork of the qmk_userspace in order to create the lucor001 QMK keymap.  
+
+## Summary:
+1) This keymap was developed for the [Corne Rev 4.1](https://github.com/foostan/crkbd) by foostan.
+2) It is heavily inspired by [Miryoku](https://github.com/manna-harbour/miryoku).
+3) Home row mods have been implemented by the [SM_TD Module](https://github.com/stasmarkin/sm_td) by stasmarkin which seems to provide better accuracy.
+4) Base keyboard layer provides [Colmak-DH](https://colemakmods.github.io/mod-dh/) but through a double-tap (Tap Dance) QWERTY and DVORAK can also be accessed.
+
+## TODO:
 
 ### Original QMK Userpace documentation:
 <details>
