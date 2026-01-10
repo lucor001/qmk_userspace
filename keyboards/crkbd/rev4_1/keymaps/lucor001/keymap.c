@@ -24,9 +24,26 @@ enum custom_keycodes {
   //Starting on sm_td 0.5 no longer need custom keycodes for a majority of keys, but I still need them for where duplicates across different layouts exist.
     SMTD_KEYCODES_BEGIN = SAFE_RANGE,
     // reads as C(ustom) + KC_A, but you may give any name here
+    //Colmak-DH Home row mods
+    CKC_AC,
+    CKC_RC,
+    CKC_SC,
+    CKC_TC,
+    CKC_NC,
+    CKC_EC,
+    CKC_IC,
+    CKC_OC,
     //QWERTY Home row mods
-    CKC_SE,
-    //Dvorak Keys  Home row mods
+    CKC_AQ,
+    CKC_SQ,
+    CKC_DQ,
+    CKC_FQ,
+    CKC_JQ,
+    CKC_KQ,
+    CKC_LQ,
+    CKC_SCLNQ,
+    //Dvorak Home row mods
+    CKC_AD,
     CKC_OD,
     CKC_ED,
     CKC_UD,
@@ -34,18 +51,28 @@ enum custom_keycodes {
     CKC_TD,
     CKC_ND,
     CKC_SD,
-    //non-homerow keys
+    //non-homerow keys colmak
+    CKC_ZC,
+    CKC_XC,
+    CKC_DOTC,
+    CKC_SLSHC,
+    //non-homerow keys colmak
+    CKC_ZQ,
+    CKC_XQ,
+    CKC_DOTQ,
+    CKC_SLSHQ,
+    //non-homerow keys dvorak
     CKC_SCLND,
     CKC_QD,
     CKC_VD,
     CKC_ZD,
     //thumb keys //Not Used
-    CKC_ESC,
-    CKC_TAB,
-    CKC_ENT,
-    CKC_SPC,
-    CKC_BSPC,
-    CKC_DEL,
+//    CKC_ESC,
+//    CKC_TAB,
+//    CKC_ENT,
+//    CKC_SPC,
+//    CKC_BSPC,
+//    CKC_DEL,
     SMTD_KEYCODES_END,
 };
 
@@ -123,25 +150,27 @@ smtd_resolution on_smtd_action(uint16_t keycode, smtd_action action, uint8_t tap
 //    } // end of case CUSTOM_KEYCODE_1
 
     //COLMAK-DH Home Row Mods
-    SMTD_MT(KC_A, KC_LEFT_GUI, 2)
-    SMTD_MT(KC_R, KC_LEFT_ALT, 2)
-    SMTD_MT(KC_S, KC_LEFT_CTRL, 2)
-    SMTD_MT(KC_T, KC_LSFT, 2)
-    SMTD_MT(KC_N, KC_LSFT, 2)
-    SMTD_MT(KC_E, KC_LEFT_CTRL, 2)
-    SMTD_MT(KC_I, KC_ALGR, 2)
-    SMTD_MT(KC_O, KC_LEFT_GUI, 2)
+    SMTD_MT_ON_MKEY(CKC_AC, KC_A, KC_LEFT_GUI, 2)
+    SMTD_MT_ON_MKEY(CKC_RC, KC_R, KC_LEFT_ALT, 2)
+    SMTD_MT_ON_MKEY(CKC_SC, KC_S, KC_LEFT_CTRL, 2)
+    SMTD_MT_ON_MKEY(CKC_TC, KC_T, KC_LSFT, 2)
+    SMTD_MT_ON_MKEY(CKC_NC, KC_N, KC_LSFT, 2)
+    SMTD_MT_ON_MKEY(CKC_EC, KC_E, KC_LEFT_CTRL, 2)
+    SMTD_MT_ON_MKEY(CKC_IC, KC_I, KC_ALGR, 2)
+    SMTD_MT_ON_MKEY(CKC_OC, KC_O, KC_LEFT_GUI, 2)
     //QWERTY Home Row Mods
 //        SMTD_MT(CKC_A, KC_A, KC_LEFT_GUI)
-    SMTD_MT_ON_MKEY(CKC_SE, KC_S, KC_LEFT_ALT, 2)
-    SMTD_MT(KC_D, KC_LEFT_CTRL, 2)
-    SMTD_MT(KC_F, KC_LSFT, 2)
-    SMTD_MT(KC_J, KC_LSFT, 2)
-    SMTD_MT(KC_K, KC_LEFT_CTRL, 2)
-    SMTD_MT(KC_L, KC_ALGR, 2)
-    SMTD_MT(KC_SCLN, KC_LEFT_GUI, 2)
+    SMTD_MT_ON_MKEY(CKC_AQ, KC_A, KC_LEFT_GUI, 2)
+    SMTD_MT_ON_MKEY(CKC_SQ, KC_S, KC_LEFT_ALT, 2)
+    SMTD_MT_ON_MKEY(CKC_DQ, KC_D, KC_LEFT_CTRL, 2)
+    SMTD_MT_ON_MKEY(CKC_FQ, KC_F, KC_LSFT, 2)
+    SMTD_MT_ON_MKEY(CKC_JQ, KC_J, KC_LSFT, 2)
+    SMTD_MT_ON_MKEY(CKC_KQ, KC_K, KC_LEFT_CTRL, 2)
+    SMTD_MT_ON_MKEY(CKC_LQ, KC_L, KC_ALGR, 2)
+    SMTD_MT_ON_MKEY(CKC_SCLNQ, KC_SCLN, KC_LEFT_GUI, 2)
     //Dvorak Home Row Mods
 //      SMTD_MT(CKC_A, KC_A, KC_LEFT_GUI, 2)
+    SMTD_MT_ON_MKEY(CKC_AD, KC_A, KC_LEFT_GUI, 2)
     SMTD_MT_ON_MKEY(CKC_OD, KC_O, KC_LEFT_ALT, 2)
     SMTD_MT_ON_MKEY(CKC_ED, KC_E, KC_LEFT_CTRL, 2)
     SMTD_MT_ON_MKEY(CKC_UD, KC_U, KC_LSFT, 2)
@@ -149,23 +178,28 @@ smtd_resolution on_smtd_action(uint16_t keycode, smtd_action action, uint8_t tap
     SMTD_MT_ON_MKEY(CKC_TD, KC_T, KC_LEFT_CTRL, 2)
     SMTD_MT_ON_MKEY(CKC_ND, KC_N, KC_ALGR, 2)
     SMTD_MT_ON_MKEY(CKC_SD, KC_S, KC_LEFT_GUI, 2)
-    //Non homerow keys
-    SMTD_LT(KC_Z, U_BUTTON, 2)
-    SMTD_LT(KC_X, KC_RIGHT_ALT, 2)
-    SMTD_LT(KC_DOT, KC_RIGHT_ALT, 2)
-    SMTD_LT(KC_SLSH, U_BUTTON, 2)
+    //Non homerow keys colmak
+    SMTD_LT_ON_MKEY(CKC_ZC, KC_Z, U_BUTTON, 2)
+    SMTD_LT_ON_MKEY(CKC_XC, KC_X, KC_RIGHT_ALT, 2)
+    SMTD_LT_ON_MKEY(CKC_DOTC, KC_DOT, KC_RIGHT_ALT, 2)
+    SMTD_LT_ON_MKEY(CKC_SLSHC, KC_SLSH, U_BUTTON, 2)
+    //Non homerow keys qwerty
+    SMTD_LT_ON_MKEY(CKC_ZQ, KC_Z, U_BUTTON, 2)
+    SMTD_LT_ON_MKEY(CKC_XQ, KC_X, KC_RIGHT_ALT, 2)
+    SMTD_LT_ON_MKEY(CKC_DOTQ, KC_DOT, KC_RIGHT_ALT, 2)
+    SMTD_LT_ON_MKEY(CKC_SLSHQ, KC_SLSH, U_BUTTON, 2)
     //Non homerow keys dvorak
     SMTD_LT_ON_MKEY(CKC_SCLND, KC_SCLN, U_BUTTON, 2)
     SMTD_LT_ON_MKEY(CKC_QD, KC_Q, KC_RIGHT_ALT, 2)
     SMTD_LT_ON_MKEY(CKC_VD, KC_V, KC_RIGHT_ALT, 2)
     SMTD_LT_ON_MKEY(CKC_ZD, KC_Z, U_BUTTON, 2)
     //Thumb keys (Not Used because these are not compatible with Layer Lock function)
-    SMTD_LT_ON_MKEY(CKC_ESC, KC_ESC, U_SYM, 2)
-    SMTD_LT_ON_MKEY(CKC_TAB, KC_TAB, U_NAV, 2)
-    SMTD_LT_ON_MKEY(CKC_ENT, KC_ENT, U_NUM, 2)
-    SMTD_LT_ON_MKEY(CKC_SPC, KC_SPC, U_MOUSE, 2)
-    SMTD_LT_ON_MKEY(CKC_BSPC, KC_BSPC, U_MEDIA, 2)
-    SMTD_LT_ON_MKEY(CKC_DEL, KC_DEL, U_FUN, 2)
+//    SMTD_LT_ON_MKEY(CKC_ESC, KC_ESC, U_SYM, 2)
+//    SMTD_LT_ON_MKEY(CKC_TAB, KC_TAB, U_NAV, 2)
+//    SMTD_LT_ON_MKEY(CKC_ENT, KC_ENT, U_NUM, 2)
+//    SMTD_LT_ON_MKEY(CKC_SPC, KC_SPC, U_MOUSE, 2)
+//    SMTD_LT_ON_MKEY(CKC_BSPC, KC_BSPC, U_MEDIA, 2)
+//    SMTD_LT_ON_MKEY(CKC_DEL, KC_DEL, U_FUN, 2)
   }
     return SMTD_RESOLUTION_UNHANDLED;
 };
@@ -183,11 +217,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //COLMAK-DH layout with home row special keys
     //Expanded Miryoku for this keyboard, adds outside columns and 4 keys in the middle
   [U_COLMAKDH] = LAYOUT_split_3x6_3_ex2(
-  QK_GESC,  KC_Q,   KC_W,  KC_F,             KC_P,             KC_B,          QK_LLCK,            QK_LLCK,                KC_J,             KC_L,    KC_U,    KC_Y,  KC_SCLN, KC_BSPC,
-   KC_TAB,  KC_A,   KC_R,  KC_S,             KC_T,             KC_G,          QK_LOCK,            QK_LOCK,                KC_M,             KC_N,    KC_E,    KC_I,     KC_O, KC_QUOT,
-  KC_LSFT,  KC_Z,   KC_X,  KC_C,             KC_D,             KC_V,                                                      KC_K,             KC_H, KC_COMM,  KC_DOT,  KC_SLSH, KC_RSFT,
+  QK_GESC,   KC_Q,   KC_W,   KC_F,             KC_P,             KC_B,          QK_LLCK,            QK_LLCK,                KC_J,             KC_L,    KC_U,     KC_Y,   KC_SCLN, KC_BSPC,
+   KC_TAB, CKC_AC, CKC_RC, CKC_SC,           CKC_TC,             KC_G,          QK_LOCK,            QK_LOCK,                KC_M,           CKC_NC,  CKC_EC,   CKC_IC,    CKC_OC, KC_QUOT,
+  KC_LSFT, CKC_ZC, CKC_XC,   KC_C,             KC_D,             KC_V,                                                      KC_K,             KC_H, KC_COMM, CKC_DOTC, CKC_SLSHC, KC_RSFT,
 //                                 CKC_ESC, CKC_TAB, CKC_ENT, CKC_SPC, CKC_BSPC, CKC_DEL
-                                 LT(U_SYM,KC_ESC), LT(U_NAV,KC_TAB), LT(U_NUM,KC_ENT), LT(U_MOUSE,KC_SPC), LT(U_MEDIA,KC_BSPC), LT(U_FUN,KC_DEL)
+                                   LT(U_SYM,KC_ESC), LT(U_NAV,KC_TAB), LT(U_NUM,KC_ENT), LT(U_MOUSE,KC_SPC), LT(U_MEDIA,KC_BSPC), LT(U_FUN,KC_DEL)
   ),
   [U_NUM] = LAYOUT_split_3x6_3_ex2(
   QK_GESC, TD(U_TD_BOOT), TD(U_TD_U_TAP), TD(U_TD_U_QWERTY), TD(U_TD_U_COLMAKDH), TD(U_TD_U_DVORAK), QK_LLCK, QK_LLCK, KC_LBRC,    KC_7, KC_8, KC_9, KC_RBRC, KC_BSPC,
@@ -226,11 +260,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                                                            MS_BTN3,           MS_BTN1, MS_BTN2,   KC_NO,   KC_NO,   KC_NO
   ),
   [U_QWERTY] = LAYOUT_split_3x6_3_ex2(
-  QK_GESC,  KC_Q,   KC_W,  KC_E,    KC_R,    KC_T, QK_LLCK, QK_LLCK,     KC_Y,    KC_U,    KC_I,    KC_O,     KC_P, KC_BSPC,
-   KC_TAB,  KC_A, CKC_SE,  KC_D,    KC_F,    KC_G, QK_LOCK, QK_LOCK,     KC_H,    KC_J,    KC_K,    KC_L,  KC_SCLN, KC_QUOT,
-  KC_LSFT,  KC_Z,   KC_X,  KC_C,    KC_V,    KC_B,                       KC_N,    KC_M, KC_COMM,  KC_DOT,  KC_SLSH, KC_RSFT,
+  QK_GESC,   KC_Q,   KC_W,   KC_E,    KC_R,             KC_T,           QK_LLCK,            QK_LLCK,                 KC_Y,             KC_U,    KC_I,     KC_O,      KC_P, KC_BSPC,
+   KC_TAB, CKC_AQ, CKC_SQ, CKC_DQ,  CKC_FQ,             KC_G,           QK_LOCK,            QK_LOCK,                 KC_H,           CKC_JQ,  CKC_KQ,   CKC_LQ, CKC_SCLNQ, KC_QUOT,
+  KC_LSFT, CKC_ZQ, CKC_XQ,   KC_C,    KC_V,             KC_B,                                                        KC_N,             KC_M, KC_COMM, CKC_DOTQ, CKC_SLSHQ, KC_RSFT,
 //                                 CKC_ESC, CKC_TAB, CKC_ENT, CKC_SPC, CKC_BSPC, CKC_DEL
-                        LT(U_SYM,KC_ESC),  LT(U_NAV,KC_TAB), LT(U_NUM,KC_ENT), LT(U_MOUSE,KC_SPC),  LT(U_MEDIA,KC_BSPC), LT(U_FUN,KC_DEL)
+                          LT(U_SYM,KC_ESC),  LT(U_NAV,KC_TAB), LT(U_NUM,KC_ENT), LT(U_MOUSE,KC_SPC),  LT(U_MEDIA,KC_BSPC), LT(U_FUN,KC_DEL)
   ),
   [U_MEDIA] = LAYOUT_split_3x6_3_ex2(
   QK_GESC, TD(U_TD_BOOT), TD(U_TD_U_TAP), TD(U_TD_U_QWERTY),  TD(U_TD_U_COLMAKDH), TD(U_TD_U_DVORAK), QK_LLCK, QK_LLCK, RM_TOGG, RM_NEXT, RM_HUEU, RM_SATU, RM_VALU, KC_BSPC,
@@ -245,9 +279,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                              KC_ESC, KC_TAB,               KC_ENT,            KC_SPC, KC_BSPC, KC_DEL
   ),
   [U_DVORAK] = LAYOUT_split_3x6_3_ex2(
-   QK_GESC,   KC_QUOT, KC_COMM, KC_DOT,    KC_P,              KC_Y,          QK_LLCK,            QK_LLCK,                 KC_F,    KC_G,   KC_C,   KC_R,   KC_L, KC_BSPC,
-    KC_TAB,      KC_A,  CKC_OD, CKC_ED,  CKC_UD,              KC_I,          QK_LOCK,            QK_LOCK,                 KC_D,  CKC_HD, CKC_TD, CKC_ND, CKC_SD, KC_SLSH,
-   KC_LSFT, CKC_SCLND,  CKC_QD,   KC_J,    KC_K,              KC_X,                                                       KC_B,    KC_M,   KC_W, CKC_VD, CKC_ZD, KC_RSFT,
+   QK_GESC,   KC_QUOT, KC_COMM, KC_DOT,    KC_P,              KC_Y,          QK_LLCK,            QK_LLCK,                 KC_F,            KC_G,   KC_C,   KC_R,   KC_L, KC_BSPC,
+    KC_TAB,    CKC_AD,  CKC_OD, CKC_ED,  CKC_UD,              KC_I,          QK_LOCK,            QK_LOCK,                 KC_D,          CKC_HD, CKC_TD, CKC_ND, CKC_SD, KC_SLSH,
+   KC_LSFT, CKC_SCLND,  CKC_QD,   KC_J,    KC_K,              KC_X,                                                       KC_B,            KC_M,   KC_W, CKC_VD, CKC_ZD, KC_RSFT,
 //                                        CKC_ESC, CKC_TAB, CKC_ENT, CKC_SPC, CKC_BSPC, CKC_DEL
                                LT(U_SYM,KC_ESC),  LT(U_NAV,KC_TAB), LT(U_NUM,KC_ENT), LT(U_MOUSE,KC_SPC),  LT(U_MEDIA,KC_BSPC), LT(U_FUN,KC_DEL)
   ),
