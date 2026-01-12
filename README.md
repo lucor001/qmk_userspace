@@ -30,14 +30,10 @@ The base lucor001 keymap uses the SM_TD module to implement home row mods wherea
    - First, fork this repository as shown in the link but do it on this repository instead of qmk/qmk_userspace.
    - Next, enable userspace in QMK config using:
    ```
+   cd $HOME
+   git clone https://github.com/{myusername}/qmk_userspace.git
    qmk config user.overlay_dir="$(realpath qmk_userspace)"
    ```
-   - Finally, do the following inside the QMK environment to clone this repository:
-    ```
-    cd $HOME
-    git clone https://github.com/{myusername}/qmk_userspace.git
-    qmk config user.overlay_dir="$(realpath qmk_userspace)"
-    ```
 1. Now you should be able to build my keymap using:
    ```
    qmk compile -kb crkbd/rev4_1/standard -km lucor001
