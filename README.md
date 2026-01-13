@@ -60,8 +60,16 @@ The base lucor001 keymap uses the SM_TD module to implement home row mods wherea
    - For the left half, hold down the QWERTY "Q" key while plugging in the keyboard.  This is the key 1 right from the very top left key (and may be labeled something else).  This will open up a new USB flash device, simply drag the .uf2 file to this device.  It will automatically flash the firmware and disconnect the USB flash device.  After a short wait the keyboard will reboot and should turn on and connect as a keyboard.
    - For the right half, it is the same except use the QWERTY "P" key while plugging in the keyboard.  This is the key 1 left from the very top right key (and may be labeled something else).
 
-## TODO:
+## Keymap Visualized:
+<picture>
+ <source media="(prefers-color-scheme: dark)" srcset="https://github.com/user-attachments/assets/f3ebb57b-9310-49eb-890a-087c430b3137">
+ <source media="(prefers-color-scheme: light)" srcset="https://github.com/user-attachments/assets/8587b751-8975-4098-81c9-1cbea1920900">
+ <img alt="The lucor001 keymap diagram" src="https://github.com/user-attachments/assets/8587b751-8975-4098-81c9-1cbea1920900">
+</picture>
 
+## TODO:
+1. Currently the SM_TD keymap only works for layer 0 keyboard layout.  Default this is Colmak-dh, the home row mods are stuck on the Colmak-dh keys and not changed for QWERTY or Dvorak.  A workaround is to change the desired keyboard layout to be first in the list inside layer_list.h.
+   
 ### Original QMK Userpace documentation:
 
 <details>
