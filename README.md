@@ -1,7 +1,9 @@
 # lucor001's QMK Corne Rev 4.1 Keymap
 <img width="1367" height="693" alt="image" src="https://github.com/user-attachments/assets/907d8da2-c175-4e82-b163-0b75ec646094" />
 
-This repository contains a fork of the qmk_userspace ([External Userspace](https://docs.qmk.fm/newbs_external_userspace)) in order to create the lucor001 QMK keymap.  Feel free to fork this repository and edit the files inside [\keyboards\crkbd\rev4_1\keymaps\lucor001](https://github.com/lucor001/qmk_userspace/tree/main/keyboards/crkbd/rev4_1/keymaps/lucor001) to your liking to create your own spin on this keymap!
+This repository contains a fork of the qmk_userspace ([External Userspace](https://docs.qmk.fm/newbs_external_userspace)) in order to create the lucor001 QMK keymaps.  Feel free to fork this repository and edit the files inside [\keyboards\crkbd\rev4_1\keymaps\lucor001](https://github.com/lucor001/qmk_userspace/tree/main/keyboards/crkbd/rev4_1/keymaps/lucor001) to your liking to create your own spin on this keymap!  
+
+The base lucor001 keymap uses the SM_TD module to implement home row mods whereas the lucor001ch keymap uses the chordal hold feature of QMK to implement home row mods.
 
 ## Summary:
 1. This keymap was developed for the [Corne Rev 4.1](https://github.com/foostan/crkbd) by foostan.
@@ -28,19 +30,15 @@ This repository contains a fork of the qmk_userspace ([External Userspace](https
    - First, fork this repository as shown in the link but do it on this repository instead of qmk/qmk_userspace.
    - Next, enable userspace in QMK config using:
    ```
+   cd $HOME
+   git clone https://github.com/{myusername}/qmk_userspace.git
    qmk config user.overlay_dir="$(realpath qmk_userspace)"
    ```
-   - Finally, do the following inside the QMK environment to clone this repository:
-    ```
-    cd $HOME
-    git clone https://github.com/{myusername}/qmk_userspace.git
-    qmk config user.overlay_dir="$(realpath qmk_userspace)"
-    ```
 1. Now you should be able to build my keymap using:
    ```
    qmk compile -kb crkbd/rev4_1/standard -km lucor001
    ```
-1. Assuming the compile completed successfully (there are often 2 warnings but no errors) you can add your new keymap with:
+1. Assuming the compile completed successfully (there are often 2 warnings but no errors) you can add your new keymap with this command.  Note: use crkbd/rev4_1/standard as they keyboard and then you can name the keymap whatever you wish.
    ```
    qmk new-keymap
    ```
