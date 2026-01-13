@@ -61,6 +61,11 @@ The base lucor001 keymap uses the SM_TD module to implement home row mods wherea
    - For the right half, it is the same except use the QWERTY "P" key while plugging in the keyboard.  This is the key 1 left from the very top right key (and may be labeled something else).
 
 ## Keymap Visualized:
+This was created by running:
+```
+qmk c2json -kb crkbd/rev4_1/standard -km lucor001ch ./qmk_userspace/keyboards/crkbd/rev4_1/keymaps/lucor001ch/keymap.c > lucor001ch.json
+```
+Then uploading the lucor001ch.json to https://keymap-drawer.streamlit.app.  I did a little light editing of the Yaml file to label the layers and make things a little more readable.
 <picture>
  <source media="(prefers-color-scheme: dark)" srcset="https://github.com/user-attachments/assets/f3ebb57b-9310-49eb-890a-087c430b3137">
  <source media="(prefers-color-scheme: light)" srcset="https://github.com/user-attachments/assets/8587b751-8975-4098-81c9-1cbea1920900">
