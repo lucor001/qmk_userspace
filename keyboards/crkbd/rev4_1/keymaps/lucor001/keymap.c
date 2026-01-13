@@ -21,7 +21,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 // Define custom keycodes for the home row mods
 enum custom_keycodes {
-  //Starting on sm_td 0.5 no longer need custom keycodes for a majority of keys, but I still need them for where duplicates across different layouts exist.
     SMTD_KEYCODES_BEGIN = SAFE_RANGE,
     // reads as C(ustom) + KC_A, but you may give any name here
     //Colmak-DH Home row mods
@@ -78,24 +77,24 @@ enum custom_keycodes {
 
 //This doesn't match their instructions for v0.5.4, but I couldn't get it to compile as process_smtd is now defined in the c file not the header file.
 //Something seems fishy about this but I couldn't sort it out without just including the c file instead (header usually should be sufficient).
-//#include "sm_td.c"
-//bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-//  if (!process_smtd(keycode, record)) return false;
-//
-//  //Attempt to make SM_TD_LT compatible with QK_LLCK, but this doesn't work
-////  switch (keycode) {
-////    case QK_LLCK:
-////        if (record->event.pressed) {
-////          // Toggle the lock on the highest layer.
-////          layer_lock_invert(get_highest_layer(layer_state));
-////          return false;
-////        }
-////      break;
-////    }
-//
-//
-//  return true;
-//}
+#include "sm_td.h"
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+  if (!process_smtd(keycode, record)) return false;
+
+  //Attempt to make SM_TD_LT compatible with QK_LLCK, but this doesn't work
+//  switch (keycode) {
+//    case QK_LLCK:
+//        if (record->event.pressed) {
+//          // Toggle the lock on the highest layer.
+//          layer_lock_invert(get_highest_layer(layer_state));
+//          return false;
+//        }
+//      break;
+//    }
+
+
+  return true;
+}
 
 // Enumerate all of the tap dance keys
 enum {
@@ -132,6 +131,7 @@ KEYBOARD_LAYER_LIST
 
 // SM Tap Dance feature to implement the home row mods
 smtd_resolution on_smtd_action(uint16_t keycode, smtd_action action, uint8_t tap_count) {
+// void on_smtd_action(uint16_t keycode, smtd_action action, uint8_t tap_count) {
   switch (keycode) {
     // Here is another attempt to get layer lock working with SM_TD, currently unconfirmed:
 //    case QK_LLCK: {
@@ -202,7 +202,7 @@ smtd_resolution on_smtd_action(uint16_t keycode, smtd_action action, uint8_t tap
 //    SMTD_LT_ON_MKEY(CKC_DEL, KC_DEL, U_FUN, 2)
   }
     return SMTD_RESOLUTION_UNHANDLED;
-};
+}
 
 // Map the redo/paste/copy/cut/undo functions
 #define U_RDO C(KC_Y)
@@ -260,9 +260,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                                                            MS_BTN3,           MS_BTN1, MS_BTN2,   KC_NO,   KC_NO,   KC_NO
   ),
   [U_QWERTY] = LAYOUT_split_3x6_3_ex2(
-  QK_GESC,   KC_Q,   KC_W,   KC_E,    KC_R,             KC_T,           QK_LLCK,            QK_LLCK,                 KC_Y,             KC_U,    KC_I,     KC_O,      KC_P, KC_BSPC,
-   KC_TAB, CKC_AQ, CKC_SQ, CKC_DQ,  CKC_FQ,             KC_G,           QK_LOCK,            QK_LOCK,                 KC_H,           CKC_JQ,  CKC_KQ,   CKC_LQ, CKC_SCLNQ, KC_QUOT,
-  KC_LSFT, CKC_ZQ, CKC_XQ,   KC_C,    KC_V,             KC_B,                                                        KC_N,             KC_M, KC_COMM, CKC_DOTQ, CKC_SLSHQ, KC_RSFT,
+  QK_GESC,   KC_Q,   KC_W,   KC_E,    KC_R,              KC_T,          QK_LLCK,            QK_LLCK,                 KC_Y,             KC_U,    KC_I,     KC_O,      KC_P, KC_BSPC,
+   KC_TAB, CKC_AQ, CKC_SQ, CKC_DQ,  CKC_FQ,              KC_G,          QK_LOCK,            QK_LOCK,                 KC_H,           CKC_JQ,  CKC_KQ,   CKC_LQ, CKC_SCLNQ, KC_QUOT,
+  KC_LSFT, CKC_ZQ, CKC_XQ,   KC_C,    KC_V,              KC_B,                                                       KC_N,             KC_M, KC_COMM, CKC_DOTQ, CKC_SLSHQ, KC_RSFT,
 //                                 CKC_ESC, CKC_TAB, CKC_ENT, CKC_SPC, CKC_BSPC, CKC_DEL
                           LT(U_SYM,KC_ESC),  LT(U_NAV,KC_TAB), LT(U_NUM,KC_ENT), LT(U_MOUSE,KC_SPC),  LT(U_MEDIA,KC_BSPC), LT(U_FUN,KC_DEL)
   ),
