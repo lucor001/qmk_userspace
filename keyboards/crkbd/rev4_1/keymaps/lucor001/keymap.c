@@ -77,24 +77,24 @@ enum custom_keycodes {
 
 //This doesn't match their instructions for v0.5.4, but I couldn't get it to compile as process_smtd is now defined in the c file not the header file.
 //Something seems fishy about this but I couldn't sort it out without just including the c file instead (header usually should be sufficient).
-#include "sm_td.h"
-bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-  if (!process_smtd(keycode, record)) return false;
-
-  //Attempt to make SM_TD_LT compatible with QK_LLCK, but this doesn't work
-//  switch (keycode) {
-//    case QK_LLCK:
-//        if (record->event.pressed) {
-//          // Toggle the lock on the highest layer.
-//          layer_lock_invert(get_highest_layer(layer_state));
-//          return false;
-//        }
-//      break;
-//    }
-
-
-  return true;
-}
+//#include "sm_td.h"
+//bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+//  if (!process_smtd(keycode, record)) return false;
+//
+//  //Attempt to make SM_TD_LT compatible with QK_LLCK, but this doesn't work
+////  switch (keycode) {
+////    case QK_LLCK:
+////        if (record->event.pressed) {
+////          // Toggle the lock on the highest layer.
+////          layer_lock_invert(get_highest_layer(layer_state));
+////          return false;
+////        }
+////      break;
+////    }
+//
+//
+//  return true;
+//}
 
 // Enumerate all of the tap dance keys
 enum {
@@ -223,23 +223,25 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //                                 CKC_ESC, CKC_TAB, CKC_ENT, CKC_SPC, CKC_BSPC, CKC_DEL
                                    LT(U_SYM,KC_ESC), LT(U_NAV,KC_TAB), LT(U_NUM,KC_ENT), LT(U_MOUSE,KC_SPC), LT(U_MEDIA,KC_BSPC), LT(U_FUN,KC_DEL)
   ),
-  [U_NUM] = LAYOUT_split_3x6_3_ex2(
-  QK_GESC, TD(U_TD_BOOT), TD(U_TD_U_TAP), TD(U_TD_U_QWERTY), TD(U_TD_U_COLMAKDH), TD(U_TD_U_DVORAK), QK_LLCK, QK_LLCK, KC_LBRC,    KC_7, KC_8, KC_9, KC_RBRC, KC_BSPC,
-   KC_TAB,          KC_A,           KC_R,              KC_S,                KC_T,             KC_NO, QK_LOCK, QK_LOCK, KC_COLN,    KC_4, KC_5, KC_6,  KC_EQL, KC_QUOT,
-  KC_LSFT,         KC_NO,        KC_ALGR,  TD(U_TD_U_MOUSE),      TD(U_TD_U_NUM),             KC_NO,                    KC_GRV,    KC_1, KC_2, KC_3, KC_BSLS, KC_RSFT,
-                                                                           KC_NO,             KC_NO,   KC_NO,  KC_DOT,    KC_0, KC_MINS
+  [U_QWERTY] = LAYOUT_split_3x6_3_ex2(
+  QK_GESC,   KC_Q,   KC_W,   KC_E,    KC_R,              KC_T,          QK_LLCK,            QK_LLCK,                 KC_Y,             KC_U,    KC_I,     KC_O,      KC_P, KC_BSPC,
+   KC_TAB, CKC_AQ, CKC_SQ, CKC_DQ,  CKC_FQ,              KC_G,          QK_LOCK,            QK_LOCK,                 KC_H,           CKC_JQ,  CKC_KQ,   CKC_LQ, CKC_SCLNQ, KC_QUOT,
+  KC_LSFT, CKC_ZQ, CKC_XQ,   KC_C,    KC_V,              KC_B,                                                       KC_N,             KC_M, KC_COMM, CKC_DOTQ, CKC_SLSHQ, KC_RSFT,
+//                                 CKC_ESC, CKC_TAB, CKC_ENT, CKC_SPC, CKC_BSPC, CKC_DEL
+                          LT(U_SYM,KC_ESC),  LT(U_NAV,KC_TAB), LT(U_NUM,KC_ENT), LT(U_MOUSE,KC_SPC),  LT(U_MEDIA,KC_BSPC), LT(U_FUN,KC_DEL)
   ),
-  [U_SYM] = LAYOUT_split_3x6_3_ex2(
-  QK_GESC, TD(U_TD_BOOT), TD(U_TD_U_TAP), TD(U_TD_U_QWERTY), TD(U_TD_U_COLMAKDH), TD(U_TD_U_DVORAK), QK_LLCK, QK_LLCK, KC_LBRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_BSPC,
-   KC_TAB,          KC_A,           KC_R,              KC_S,                KC_T,             KC_NO, QK_LOCK, QK_LOCK, KC_SCLN,  KC_DLR, KC_PERC, KC_CIRC, KC_PLUS, KC_QUOT,
-  KC_LSFT,         KC_NO,        KC_ALGR,    TD(U_TD_U_FUN),      TD(U_TD_U_SYM),             KC_NO,                   KC_TILD, KC_EXLM,   KC_AT, KC_HASH, KC_PIPE, KC_RSFT,
-                                                                           KC_NO,             KC_NO,   KC_NO, KC_LPRN, KC_RPRN, KC_UNDS
+  [U_DVORAK] = LAYOUT_split_3x6_3_ex2(
+   QK_GESC,   KC_QUOT, KC_COMM, KC_DOT,    KC_P,              KC_Y,          QK_LLCK,            QK_LLCK,                 KC_F,            KC_G,   KC_C,   KC_R,   KC_L, KC_BSPC,
+    KC_TAB,    CKC_AD,  CKC_OD, CKC_ED,  CKC_UD,              KC_I,          QK_LOCK,            QK_LOCK,                 KC_D,          CKC_HD, CKC_TD, CKC_ND, CKC_SD, KC_SLSH,
+   KC_LSFT, CKC_SCLND,  CKC_QD,   KC_J,    KC_K,              KC_X,                                                       KC_B,            KC_M,   KC_W, CKC_VD, CKC_ZD, KC_RSFT,
+//                                        CKC_ESC, CKC_TAB, CKC_ENT, CKC_SPC, CKC_BSPC, CKC_DEL
+                               LT(U_SYM,KC_ESC),  LT(U_NAV,KC_TAB), LT(U_NUM,KC_ENT), LT(U_MOUSE,KC_SPC),  LT(U_MEDIA,KC_BSPC), LT(U_FUN,KC_DEL)
   ),
-  [U_FUN] = LAYOUT_split_3x6_3_ex2(
-  QK_GESC, KC_F12, KC_F7, KC_F8,  KC_F9, KC_PSCR, QK_LLCK, QK_LLCK, TD(U_TD_BOOT), TD(U_TD_U_TAP), TD(U_TD_U_QWERTY), TD(U_TD_U_COLMAKDH), TD(U_TD_U_DVORAK), KC_BSPC,
-  KC_CAPS, KC_F11, KC_F4, KC_F5,  KC_F6, KC_SCRL, QK_LOCK, QK_LOCK,         KC_NO,           KC_N,             KC_E,            KC_I,  KC_O, KC_QUOT,
-  KC_LSFT, KC_F10, KC_F1, KC_F2,  KC_F3, KC_PAUS,                         KC_ALGR, TD(U_TD_U_FUN),   TD(U_TD_U_SYM),  KC_NO, KC_RSFT, KC_NO,
-                                 KC_APP,  KC_SPC,  KC_TAB,   KC_NO,         KC_NO,          KC_NO
+  [U_TAP] = LAYOUT_split_3x6_3_ex2(
+  QK_GESC, KC_Q, KC_W, KC_F,   KC_P,   KC_B,  TD(U_TD_U_COLMAKDH),     TD(U_TD_BOOT),    KC_J,   KC_L,    KC_U,   KC_Y, KC_SCLN, KC_BSPC,
+   KC_TAB, KC_A, KC_R, KC_S,   KC_T,   KC_G,    TD(U_TD_U_QWERTY), TD(U_TD_U_DVORAK),    KC_M,   KC_N,    KC_E,   KC_I,    KC_O, KC_QUOT,
+  KC_LSFT, KC_Z, KC_X, KC_C,   KC_D,   KC_V,                                             KC_K,   KC_H, KC_COMM, KC_DOT, KC_SLSH, KC_RSFT,
+                             KC_ESC, KC_TAB,               KC_ENT,            KC_SPC, KC_BSPC, KC_DEL
   ),
   [U_BUTTON] = LAYOUT_split_3x6_3_ex2(
   QK_GESC, U_UND, U_CUT, U_CPY,   U_PST,   U_RDO, QK_LLCK, QK_LLCK,   U_RDO,   U_PST, U_CPY, U_CUT, U_UND, KC_BSPC,
@@ -259,31 +261,29 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    KC_LSFT,         KC_NO,        KC_ALGR,    TD(U_TD_U_NUM),     TD(U_TD_U_MOUSE),             KC_NO,                     U_RDO,   U_PST,   U_CPY,   U_CUT,   U_UND, KC_RSFT,
                                                                            MS_BTN3,           MS_BTN1, MS_BTN2,   KC_NO,   KC_NO,   KC_NO
   ),
-  [U_QWERTY] = LAYOUT_split_3x6_3_ex2(
-  QK_GESC,   KC_Q,   KC_W,   KC_E,    KC_R,              KC_T,          QK_LLCK,            QK_LLCK,                 KC_Y,             KC_U,    KC_I,     KC_O,      KC_P, KC_BSPC,
-   KC_TAB, CKC_AQ, CKC_SQ, CKC_DQ,  CKC_FQ,              KC_G,          QK_LOCK,            QK_LOCK,                 KC_H,           CKC_JQ,  CKC_KQ,   CKC_LQ, CKC_SCLNQ, KC_QUOT,
-  KC_LSFT, CKC_ZQ, CKC_XQ,   KC_C,    KC_V,              KC_B,                                                       KC_N,             KC_M, KC_COMM, CKC_DOTQ, CKC_SLSHQ, KC_RSFT,
-//                                 CKC_ESC, CKC_TAB, CKC_ENT, CKC_SPC, CKC_BSPC, CKC_DEL
-                          LT(U_SYM,KC_ESC),  LT(U_NAV,KC_TAB), LT(U_NUM,KC_ENT), LT(U_MOUSE,KC_SPC),  LT(U_MEDIA,KC_BSPC), LT(U_FUN,KC_DEL)
-  ),
   [U_MEDIA] = LAYOUT_split_3x6_3_ex2(
   QK_GESC, TD(U_TD_BOOT), TD(U_TD_U_TAP), TD(U_TD_U_QWERTY),  TD(U_TD_U_COLMAKDH), TD(U_TD_U_DVORAK), QK_LLCK, QK_LLCK, RM_TOGG, RM_NEXT, RM_HUEU, RM_SATU, RM_VALU, KC_BSPC,
    KC_TAB,          KC_A,           KC_R,              KC_S,                 KC_T,             KC_NO, QK_LOCK, QK_LOCK,   KC_NO, KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT, KC_QUOT,
   KC_LSFT,         KC_NO,        KC_ALGR,    TD(U_TD_U_NAV),     TD(U_TD_U_MEDIA),             KC_NO,                   OU_AUTO,   KC_NO,   KC_NO,   KC_NO,   KC_NO, KC_RSFT,
                                                                           KC_MSTP,           KC_MPLY, KC_MUTE,   KC_NO,   KC_NO,   KC_NO
   ),
-  [U_TAP] = LAYOUT_split_3x6_3_ex2(
-  QK_GESC, KC_Q, KC_W, KC_F,   KC_P,   KC_B,  TD(U_TD_U_COLMAKDH),     TD(U_TD_BOOT),    KC_J,   KC_L,    KC_U,   KC_Y, KC_SCLN, KC_BSPC,
-   KC_TAB, KC_A, KC_R, KC_S,   KC_T,   KC_G,    TD(U_TD_U_QWERTY), TD(U_TD_U_DVORAK),    KC_M,   KC_N,    KC_E,   KC_I,    KC_O, KC_QUOT,
-  KC_LSFT, KC_Z, KC_X, KC_C,   KC_D,   KC_V,                                             KC_K,   KC_H, KC_COMM, KC_DOT, KC_SLSH, KC_RSFT,
-                             KC_ESC, KC_TAB,               KC_ENT,            KC_SPC, KC_BSPC, KC_DEL
+  [U_NUM] = LAYOUT_split_3x6_3_ex2(
+  QK_GESC, TD(U_TD_BOOT), TD(U_TD_U_TAP), TD(U_TD_U_QWERTY), TD(U_TD_U_COLMAKDH), TD(U_TD_U_DVORAK), QK_LLCK, QK_LLCK, KC_LBRC,    KC_7, KC_8, KC_9, KC_RBRC, KC_BSPC,
+   KC_TAB,          KC_A,           KC_R,              KC_S,                KC_T,             KC_NO, QK_LOCK, QK_LOCK, KC_COLN,    KC_4, KC_5, KC_6,  KC_EQL, KC_QUOT,
+  KC_LSFT,         KC_NO,        KC_ALGR,  TD(U_TD_U_MOUSE),      TD(U_TD_U_NUM),             KC_NO,                    KC_GRV,    KC_1, KC_2, KC_3, KC_BSLS, KC_RSFT,
+                                                                           KC_NO,             KC_NO,   KC_NO,  KC_DOT,    KC_0, KC_MINS
   ),
-  [U_DVORAK] = LAYOUT_split_3x6_3_ex2(
-   QK_GESC,   KC_QUOT, KC_COMM, KC_DOT,    KC_P,              KC_Y,          QK_LLCK,            QK_LLCK,                 KC_F,            KC_G,   KC_C,   KC_R,   KC_L, KC_BSPC,
-    KC_TAB,    CKC_AD,  CKC_OD, CKC_ED,  CKC_UD,              KC_I,          QK_LOCK,            QK_LOCK,                 KC_D,          CKC_HD, CKC_TD, CKC_ND, CKC_SD, KC_SLSH,
-   KC_LSFT, CKC_SCLND,  CKC_QD,   KC_J,    KC_K,              KC_X,                                                       KC_B,            KC_M,   KC_W, CKC_VD, CKC_ZD, KC_RSFT,
-//                                        CKC_ESC, CKC_TAB, CKC_ENT, CKC_SPC, CKC_BSPC, CKC_DEL
-                               LT(U_SYM,KC_ESC),  LT(U_NAV,KC_TAB), LT(U_NUM,KC_ENT), LT(U_MOUSE,KC_SPC),  LT(U_MEDIA,KC_BSPC), LT(U_FUN,KC_DEL)
+  [U_SYM] = LAYOUT_split_3x6_3_ex2(
+  QK_GESC, TD(U_TD_BOOT), TD(U_TD_U_TAP), TD(U_TD_U_QWERTY), TD(U_TD_U_COLMAKDH), TD(U_TD_U_DVORAK), QK_LLCK, QK_LLCK, KC_LBRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_BSPC,
+   KC_TAB,          KC_A,           KC_R,              KC_S,                KC_T,             KC_NO, QK_LOCK, QK_LOCK, KC_SCLN,  KC_DLR, KC_PERC, KC_CIRC, KC_PLUS, KC_QUOT,
+  KC_LSFT,         KC_NO,        KC_ALGR,    TD(U_TD_U_FUN),      TD(U_TD_U_SYM),             KC_NO,                   KC_TILD, KC_EXLM,   KC_AT, KC_HASH, KC_PIPE, KC_RSFT,
+                                                                           KC_NO,             KC_NO,   KC_NO, KC_LPRN, KC_RPRN, KC_UNDS
+  ),
+  [U_FUN] = LAYOUT_split_3x6_3_ex2(
+  QK_GESC, KC_F12, KC_F7, KC_F8,  KC_F9, KC_PSCR, QK_LLCK, QK_LLCK, TD(U_TD_BOOT), TD(U_TD_U_TAP), TD(U_TD_U_QWERTY), TD(U_TD_U_COLMAKDH), TD(U_TD_U_DVORAK), KC_BSPC,
+  KC_CAPS, KC_F11, KC_F4, KC_F5,  KC_F6, KC_SCRL, QK_LOCK, QK_LOCK,         KC_NO,           KC_N,             KC_E,            KC_I,  KC_O, KC_QUOT,
+  KC_LSFT, KC_F10, KC_F1, KC_F2,  KC_F3, KC_PAUS,                         KC_ALGR, TD(U_TD_U_FUN),   TD(U_TD_U_SYM),  KC_NO, KC_RSFT, KC_NO,
+                                 KC_APP,  KC_SPC,  KC_TAB,   KC_NO,         KC_NO,          KC_NO
   ),
 };
 
