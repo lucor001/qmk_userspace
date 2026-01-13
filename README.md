@@ -60,8 +60,21 @@ The base lucor001 keymap uses the SM_TD module to implement home row mods wherea
    - For the left half, hold down the QWERTY "Q" key while plugging in the keyboard.  This is the key 1 right from the very top left key (and may be labeled something else).  This will open up a new USB flash device, simply drag the .uf2 file to this device.  It will automatically flash the firmware and disconnect the USB flash device.  After a short wait the keyboard will reboot and should turn on and connect as a keyboard.
    - For the right half, it is the same except use the QWERTY "P" key while plugging in the keyboard.  This is the key 1 left from the very top right key (and may be labeled something else).
 
-## TODO:
+## Keymap Visualized:
+This was created by running:
+```
+qmk c2json -kb crkbd/rev4_1/standard -km lucor001ch ./qmk_userspace/keyboards/crkbd/rev4_1/keymaps/lucor001ch/keymap.c > lucor001ch.json
+```
+Then uploading the lucor001ch.json to https://keymap-drawer.streamlit.app.  I did a little light editing of the Yaml file to label the layers and make things a little more readable.
+<picture>
+ <source media="(prefers-color-scheme: dark)" srcset="https://github.com/user-attachments/assets/cc2e4a19-06e8-4891-9eb8-f9428533fb9c">
+ <source media="(prefers-color-scheme: light)" srcset="https://github.com/user-attachments/assets/ed23bca0-0060-4158-ba12-c11151761449">
+ <img alt="The lucor001 keymap diagram" src="https://github.com/user-attachments/assets/ed23bca0-0060-4158-ba12-c11151761449">
+</picture>
 
+## TODO:
+1. Currently the SM_TD keymap only works for layer 0 keyboard layout.  Default this is Colmak-dh, the home row mods are stuck on the Colmak-dh keys and not changed for QWERTY or Dvorak.  A workaround is to change the desired keyboard layout to be first in the list inside layer_list.h.
+   
 ### Original QMK Userpace documentation:
 
 <details>
