@@ -24,7 +24,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 //#define QUICK_TAP_TERM 0
 // Core tap-hold tuning
-#define TAPPING_TERM 240
+#define TAPPING_TERM 210 //Reduced from 240 due to missed capitals
 #define PERMISSIVE_HOLD
 
 // New in 2025
