@@ -67,9 +67,9 @@ qmk c2json -kb crkbd/rev4_1/standard -km lucor001ch ./qmk_userspace/keyboards/cr
 ```
 Then uploading the lucor001ch.json to https://keymap-drawer.streamlit.app.  I did a little light editing of the Yaml file to label the layers and make things a little more readable.
 <picture>
- <source media="(prefers-color-scheme: dark)" srcset="https://github.com/user-attachments/assets/aa79d85f-324b-4dc4-931f-2728d2d10182">
- <source media="(prefers-color-scheme: light)" srcset="https://github.com/user-attachments/assets/cae7b782-f918-466b-8156-b64bc50ee5e2">
- <img alt="The lucor001 keymap diagram" src="https://github.com/user-attachments/assets/cae7b782-f918-466b-8156-b64bc50ee5e2">
+ <source media="(prefers-color-scheme: dark)" srcset="https://github.com/user-attachments/assets/2d3d6132-cc1c-408f-9481-486fdf5e3f11">
+ <source media="(prefers-color-scheme: light)" srcset="https://github.com/user-attachments/assets/e9dddc73-37dc-49ed-a31f-b9fa30a5ab74">
+ <img alt="The lucor001 keymap diagram" src="https://github.com/user-attachments/assets/e9dddc73-37dc-49ed-a31f-b9fa30a5ab74">
 </picture>
 
 ## TODO:
