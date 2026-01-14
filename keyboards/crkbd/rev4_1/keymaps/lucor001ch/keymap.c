@@ -49,6 +49,50 @@ bool get_chordal_hold(uint16_t tap_hold_keycode, keyrecord_t* tap_hold_record,
     return get_chordal_hold_default(tap_hold_record, other_record);
 }
 
+//Set permissive hold on the GUI, Ctrl, Alt keys.
+bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case LGUI_T(KC_A):
+        case RGUI_T(KC_O):
+        case RGUI_T(KC_SCLN):
+        case RGUI_T(KC_S):
+        case LALT_T(KC_R):
+        case LALT_T(KC_S):
+        case LALT_T(KC_O):
+        case ALGR_T(KC_I):
+        case ALGR_T(KC_L):
+        case ALGR_T(KC_N):
+        case LCTL_T(KC_S):
+        case LCTL_T(KC_D):
+        case LCTL_T(KC_E):
+        case RCTL_T(KC_E):
+        case RCTL_T(KC_K):
+        case RCTL_T(KC_T):
+            // Immediately select the hold action when another key is tapped.
+            return true;
+        default:
+            // Do not select the hold action when another key is tapped.
+            return false;
+    }
+}
+
+//Set hold on other key press on Shift.
+bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case LSFT_T(KC_T):
+        case LSFT_T(KC_F):
+        case LSFT_T(KC_U):
+        case RSFT_T(KC_N):
+        case RSFT_T(KC_J):
+        case RSFT_T(KC_H):
+            // Immediately select the hold action when another key is pressed.
+            return true;
+        default:
+            // Do not select the hold action when another key is pressed.
+            return false;
+    }
+}
+
 // Enumerate all of the tap dance keys
 enum {
   U_TD_BOOT,

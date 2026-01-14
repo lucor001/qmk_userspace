@@ -25,7 +25,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //#define QUICK_TAP_TERM 0
 // Core tap-hold tuning
 #define TAPPING_TERM 210 //Reduced from 240 due to missed capitals
-#define PERMISSIVE_HOLD
+//#define PERMISSIVE_HOLD
+#define PERMISSIVE_HOLD_PER_KEY
+//#define HOLD_ON_OTHER_KEY_PRESS
+#define HOLD_ON_OTHER_KEY_PRESS_PER_KEY
+#define SPECULATIVE_HOLD
 
 // New in 2025
 #define CHORDAL_HOLD // settle same-hand chords as taps
