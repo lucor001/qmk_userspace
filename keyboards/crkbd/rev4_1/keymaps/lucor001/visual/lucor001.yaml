@@ -1,0 +1,166 @@
+layout: {qmk_keyboard: crkbd/rev4_1/standard, layout_name: LAYOUT_split_3x6_3_ex2}
+layers:
+  Colmak-DH:
+  - QK GESC
+  - Q
+  - W
+  - F
+  - P
+  - B
+  - QK LLCK
+  - QK LLCK
+  - J
+  - L
+  - U
+  - Y
+  - ;
+  - BSPC
+  - TAB
+  - {t: A, h: LGUI}
+  - {t: R, h: LALT}
+  - {t: S, h: LCTL}
+  - {t: T, h: LSFT}
+  - G
+  - QK LOCK
+  - QK LOCK
+  - M
+  - {t: N, h: RSFT}
+  - {t: E, h: RCTL}
+  - {t: I, h: ALGR}
+  - {t: O, h: RGUI}
+  - ''''
+  - LSFT
+  - {t: Z, h: BUTTON}
+  - {t: X, h: RALT}
+  - C
+  - D
+  - V
+  - K
+  - H
+  - ','
+  - {t: ., h: RALT}
+  - {t: /, h: BUTTON}
+  - RSFT
+  - {t: SYM, h: ESC}
+  - {t: NAV, h: TAB}
+  - {t: NUM, h: ENT}
+  - {t: MOUSE, h: SPC}
+  - {t: MEDIA, h: BSPC}
+  - {t: FUN, h: DEL}
+  QWERTY:
+  - QK GESC
+  - Q
+  - W
+  - E
+  - R
+  - T
+  - QK LLCK
+  - QK LLCK
+  - Y
+  - U
+  - I
+  - O
+  - P
+  - BSPC
+  - TAB
+  - {t: A, h: LGUI}
+  - {t: S, h: LALT}
+  - {t: D, h: LCTL}
+  - {t: F, h: LSFT}
+  - G
+  - QK LOCK
+  - QK LOCK
+  - H
+  - {t: J, h: RSFT}
+  - {t: K, h: RCTL}
+  - {t: L, h: ALGR}
+  - {t: ;, h: RGUI}
+  - ''''
+  - LSFT
+  - {t: Z, h: BUTTON}
+  - {t: X, h: RALT}
+  - C
+  - V
+  - B
+  - N
+  - M
+  - ','
+  - {t: ., h: RALT}
+  - {t: /, h: BUTTON}
+  - RSFT
+  - {t: SYM, h: ESC}
+  - {t: NAV, h: TAB}
+  - {t: NUM, h: ENT}
+  - {t: MOUSE, h: SPC}
+  - {t: MEDIA, h: BSPC}
+  - {t: FUN, h: DEL}
+  Dvorak:
+  - QK GESC
+  - ''''
+  - ','
+  - .
+  - P
+  - Y
+  - QK LLCK
+  - QK LLCK
+  - F
+  - G
+  - C
+  - R
+  - L
+  - BSPC
+  - TAB
+  - {t: A, h: LGUI}
+  - {t: O, h: LALT}
+  - {t: E, h: LCTL}
+  - {t: U, h: LSFT}
+  - I
+  - QK LOCK
+  - QK LOCK
+  - D
+  - {t: H, h: RSFT}
+  - {t: T, h: RCTL}
+  - {t: N, h: ALGR}
+  - {t: S, h: RGUI}
+  - /
+  - LSFT
+  - {t: ;, h: BUTTON}
+  - {t: Q, h: RALT}
+  - J
+  - K
+  - X
+  - B
+  - M
+  - W
+  - {t: V, h: RALT}
+  - {t: Z, h: BUTTON}
+  - RSFT
+  - {t: SYM, h: ESC}
+  - {t: NAV, h: TAB}
+  - {t: NUM, h: ENT}
+  - {t: MOUSE, h: SPC}
+  - {t: MEDIA, h: BSPC}
+  - {t: FUN, h: DEL}
+  SYM: [QK GESC, TD BOOT, TD TAP, TD QWERTY, TD COLMAKDH, TD DVORAK, QK LLCK, QK LLCK, '[', '&', '*', (, ), BSPC, TAB, LGUI,
+    LALT, LCTL, LSFT, '', QK LOCK, QK LOCK, ;, $, '%', ^, +, '''', LSFT, '', ALGR, TD FUN, TD SYM, '', '~', '!', '@', '#', '|', RSFT, '', '', '',
+    (, ), _]
+  NAV: [QK GESC, TD BOOT, TD TAP, TD QWERTY, TD COLMAKDH, TD DVORAK, QK LLCK, QK LLCK, INS, HOME, UP, END, PGUP, BSPC, TAB, LGUI,
+    LALT, LCTL, LSFT, '', QK LOCK, QK LOCK, CW TOGG, LEFT, DOWN, RGHT, PGDN, '''', LSFT, '', ALGR, TD MEDIA, TD NAV, '', Ctl+Y, Ctl+V, Ctl+C, Ctl+X,
+    Ctl+Z, RSFT, '', '', '', ENT, BSPC, DEL]
+  NUM: [QK GESC, TD BOOT, TD TAP, TD QWERTY, TD COLMAKDH, TD DVORAK, QK LLCK, QK LLCK, '[', '7', '8', '9', ']', BSPC, TAB, LGUI,
+    LALT, LCTL, LSFT, '', QK LOCK, QK LOCK, ':', '4', '5', '6', '=', '''', LSFT, '', ALGR, TD MOUSE, TD NUM, '', '`', '1', '2', '3', \, RSFT, '',
+    '', '', ., '0', '-']
+  MOUSE: [QK GESC, TD BOOT, TD TAP, TD QWERTY, TD COLMAKDH, TD DVORAK, QK LLCK, QK LLCK, '', MS WHLL, MS UP, MS WHLR, MS WHLU,
+    BSPC, TAB, LGUI, LALT, LCTL, LSFT, '', QK LOCK, QK LOCK, '', MS LEFT, MS DOWN, MS RGHT, MS WHLD, '''', LSFT, '', ALGR, TD NUM, TD MOUSE, '', Ctl+Y,
+    Ctl+V, Ctl+C, Ctl+X, Ctl+Z, RSFT, MS BTN3, MS BTN1, MS BTN2, '', '', '']
+  MEDIA: [QK GESC, TD BOOT, TD TAP, TD QWERTY, TD COLMAKDH, TD DVORAK, QK LLCK, QK LLCK, RM TOGG, RM NEXT, RM HUEU, RM SATU, RM
+      VALU, BSPC, TAB, LGUI, LALT, LCTL, LSFT, '', QK LOCK, QK LOCK, '', MPRV, VOLD, VOLU, MNXT, '''', LSFT, '', ALGR, TD NAV, TD MEDIA, '', OU AUTO,
+    '', '', '', AC TOGG, RSFT, MSTP, MPLY, MUTE, '', '', '']
+  FUN: [QK GESC, F12, F7, F8, F9, PSCR, QK LLCK, QK LLCK, TD BOOT, TD TAP, TD QWERTY, TD COLMAKDH, TD DVORAK, BSPC, CAPS, F11,
+    F4, F5, F6, SCRL, QK LOCK, QK LOCK, '', RSFT, RCTL, ALGR, RGUI, '''', LSFT, F10, F1, F2, F3, PAUS, ALGR, TD FUN, TD SYM, '', RSFT, '', APP, SPC,
+    TAB, '', '', '']
+  TAP: [QK GESC, Q, W, F, P, B, TD COLMAKDH, TD BOOT, J, L, U, Y, ;, BSPC, TAB, A, R, S, T, G, TD QWERTY, TD DVORAK, M, N, E, I, O, '''',
+    LSFT, Z, X, C, D, V, K, H, ',', ., /, RSFT, ESC, TAB, ENT, SPC, BSPC, DEL]
+  BUTTON: [QK GESC, Undo, Cut, Copy, Paste, Redo, QK LLCK, QK LLCK, Redo, Paste, Copy, Cut, Undo, BSPC, TAB, LGUI, LALT, LCTL, LSFT, '', QK LOCK, QK LOCK,
+    '', RSFT, RCTL, ALGR, RGUI, '''', LSFT, Undo, Cut, Copy, Paste, Redo, Redo, Paste, Copy, Cut, Undo, RSFT, MS BTN3, MS BTN1, MS BTN2, MS BTN2, MS BTN1,
+    MS BTN3]
