@@ -142,21 +142,21 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [U_COLMAKDH] = LAYOUT_split_3x6_3_ex2(
   QK_GESC,               KC_Q,         KC_W,         KC_F,         KC_P,             KC_B,          QK_LLCK,            QK_LLCK,                KC_J,             KC_L,         KC_U,           KC_Y,               KC_SCLN, KC_BSPC,
    KC_TAB,       LGUI_T(KC_A), LALT_T(KC_R), LCTL_T(KC_S), LSFT_T(KC_T),             KC_G,          QK_LOCK,            QK_LOCK,                KC_M,     RSFT_T(KC_N), RCTL_T(KC_E),   ALGR_T(KC_I),          RGUI_T(KC_O), KC_QUOT,
-  KC_LSFT, MT(U_BUTTON, KC_Z), RALT_T(KC_X),         KC_C,         KC_D,             KC_V,                                                      KC_K,             KC_H,      KC_COMM, RALT_T(KC_DOT), MT(U_BUTTON, KC_SLSH), KC_RSFT,
+  KC_LSFT, LT(U_BUTTON, KC_Z),         KC_X,         KC_C,         KC_D,             KC_V,                                                      KC_K,             KC_H,      KC_COMM,         KC_DOT, LT(U_BUTTON, KC_SLSH), KC_RSFT,
 //                                 CKC_ESC, CKC_TAB, CKC_ENT, CKC_SPC, CKC_BSPC, CKC_DEL
                                                        LT(U_SYM,KC_ESC), LT(U_NAV,KC_TAB), LT(U_NUM,KC_ENT), LT(U_MOUSE,KC_SPC), LT(U_MEDIA,KC_BSPC), LT(U_FUN,KC_DEL)
   ),
   [U_QWERTY] = LAYOUT_split_3x6_3_ex2(
   QK_GESC,                KC_Q,         KC_W,         KC_E,             KC_R,             KC_T,          QK_LLCK,            QK_LLCK,                 KC_Y,             KC_U,         KC_I,           KC_O,                  KC_P, KC_BSPC,
    KC_TAB,        LGUI_T(KC_A), LALT_T(KC_S), LCTL_T(KC_D),     LSFT_T(KC_F),             KC_G,          QK_LOCK,            QK_LOCK,                 KC_H,     RSFT_T(KC_J), RCTL_T(KC_K),   ALGR_T(KC_L),       RGUI_T(KC_SCLN), KC_QUOT,
-  KC_LSFT,  MT(U_BUTTON, KC_Z), RALT_T(KC_X),         KC_C,             KC_V,             KC_B,                                                       KC_N,             KC_M,      KC_COMM, RALT_T(KC_DOT), MT(U_BUTTON, KC_SLSH), KC_RSFT,
+  KC_LSFT,  LT(U_BUTTON, KC_Z),         KC_X,         KC_C,             KC_V,             KC_B,                                                       KC_N,             KC_M,      KC_COMM,         KC_DOT, LT(U_BUTTON, KC_SLSH), KC_RSFT,
 //                                 CKC_ESC, CKC_TAB, CKC_ENT, CKC_SPC, CKC_BSPC, CKC_DEL
                                                             LT(U_SYM,KC_ESC), LT(U_NAV,KC_TAB), LT(U_NUM,KC_ENT), LT(U_MOUSE,KC_SPC),  LT(U_MEDIA,KC_BSPC), LT(U_FUN,KC_DEL)
   ),
   [U_DVORAK] = LAYOUT_split_3x6_3_ex2(
    QK_GESC,               KC_QUOT,      KC_COMM,       KC_DOT,             KC_P,             KC_Y,          QK_LLCK,            QK_LLCK,                 KC_F,            KC_G,         KC_C,         KC_R,               KC_L, KC_BSPC,
     KC_TAB,          LGUI_T(KC_A), LALT_T(KC_O), LCTL_T(KC_E),     LSFT_T(KC_U),             KC_I,          QK_LOCK,            QK_LOCK,                 KC_D,    RSFT_T(KC_H), RCTL_T(KC_T), ALGR_T(KC_N),       RGUI_T(KC_S), KC_SLSH,
-   KC_LSFT, MT(U_BUTTON, KC_SCLN), RALT_T(KC_Q),         KC_J,             KC_K,             KC_X,                                                       KC_B,            KC_M,         KC_W, RALT_T(KC_V), MT(U_BUTTON, KC_Z), KC_RSFT,
+   KC_LSFT, LT(U_BUTTON, KC_SCLN),         KC_Q,         KC_J,             KC_K,             KC_X,                                                       KC_B,            KC_M,         KC_W,         KC_V, LT(U_BUTTON, KC_Z), KC_RSFT,
 //                                        CKC_ESC, CKC_TAB, CKC_ENT, CKC_SPC, CKC_BSPC, CKC_DEL
                                                                LT(U_SYM,KC_ESC), LT(U_NAV,KC_TAB), LT(U_NUM,KC_ENT), LT(U_MOUSE,KC_SPC),  LT(U_MEDIA,KC_BSPC), LT(U_FUN,KC_DEL)
   ),
@@ -228,9 +228,9 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
   rgb_t rgb_b = hsv_to_rgb(hsv_b);
   rgb_t rgb_w = hsv_to_rgb(hsv_w);
 
+  uint8_t layer = get_highest_layer(layer_state|default_layer_state);
 
   for (uint8_t i = led_min; i < led_max; i++) {
-    uint8_t layer = get_highest_layer(layer_state|default_layer_state);
     switch(layer) {
         case U_QWERTY:
           rgb_matrix_set_color(i, rgb_g.r, rgb_g.g, rgb_g.b);
@@ -238,26 +238,30 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
         case U_DVORAK:
           rgb_matrix_set_color(i, rgb_b.r, rgb_b.g, rgb_b.b);
           break;
-        case U_NUM:
-          RGB_MATRIX_INDICATOR_SET_COLOR(0, rgb_w.r, rgb_w.g, rgb_w.b); // Turn Number key white
+        default:
+            break;
+    }
+  }
+  switch(layer) {
+          case U_NUM:
+          RGB_MATRIX_INDICATOR_SET_COLOR(0, rgb_w.r, rgb_w.g, rgb_w.b); // Turn Num key white
           break;
         case U_NAV:
-          RGB_MATRIX_INDICATOR_SET_COLOR(7, rgb_w.r, rgb_w.g, rgb_w.b); // Turn Number key white
+          RGB_MATRIX_INDICATOR_SET_COLOR(7, rgb_w.r, rgb_w.g, rgb_w.b); // Turn Nav key white
           break;
         case U_SYM:
-          RGB_MATRIX_INDICATOR_SET_COLOR(8, rgb_w.r, rgb_w.g, rgb_w.b); // Turn Number key white
+          RGB_MATRIX_INDICATOR_SET_COLOR(8, rgb_w.r, rgb_w.g, rgb_w.b); // Turn Sym key white
           break;
         case U_MOUSE:
-          RGB_MATRIX_INDICATOR_SET_COLOR(23, rgb_w.r, rgb_w.g, rgb_w.b); // Turn Number key white
+          RGB_MATRIX_INDICATOR_SET_COLOR(23, rgb_w.r, rgb_w.g, rgb_w.b); // Turn Mouse key white
           break;
         case U_MEDIA:
-          RGB_MATRIX_INDICATOR_SET_COLOR(30, rgb_w.r, rgb_w.g, rgb_w.b); // Turn Number key white
+          RGB_MATRIX_INDICATOR_SET_COLOR(30, rgb_w.r, rgb_w.g, rgb_w.b); // Turn Media key white
           break;
         case U_FUN:
-          RGB_MATRIX_INDICATOR_SET_COLOR(31, rgb_w.r, rgb_w.g, rgb_w.b); // Turn Number key white
+          RGB_MATRIX_INDICATOR_SET_COLOR(31, rgb_w.r, rgb_w.g, rgb_w.b); // Turn Fun key white
           break;
         case U_BUTTON:
-        //NOTE: This layer is implemented by SMTD which means it does not work with Layer Lock (QK_LLCK)
           RGB_MATRIX_INDICATOR_SET_COLOR(15, rgb_w.r, rgb_w.g, rgb_w.b); // Turn Number key white
           RGB_MATRIX_INDICATOR_SET_COLOR(38, rgb_w.r, rgb_w.g, rgb_w.b); // Turn Number key white
           break;
@@ -265,13 +269,19 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
         case U_TAP:
         default:
             break;
-    }
   }
+
   if (host_keyboard_led_state().caps_lock) {
     RGB_MATRIX_INDICATOR_SET_COLOR(19, rgb_w.r, rgb_w.g, rgb_w.b); // Turn Caps Lock key white
   }
   if (host_keyboard_led_state().scroll_lock) {
     RGB_MATRIX_INDICATOR_SET_COLOR(2, rgb_w.r, rgb_w.g, rgb_w.b); // Turn Scroll Lock key white
+  }
+  //This requires the USB cable to be plugged into the left half.
+  // Try as I might I haven't found a way to make it sync this information across halves.  Probably need to write my own transport routine to pass autocorrect across.
+  // For now, if plugged into the right half it will light the backspace key, normally it lights the escape key.
+  if (autocorrect_is_enabled()==true) {
+    rgb_matrix_set_color(18, rgb_w.r, rgb_w.g, rgb_w.b); // Turn ESC key white as indicator
   }
   return false;
 }
