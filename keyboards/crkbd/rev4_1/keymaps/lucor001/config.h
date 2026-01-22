@@ -27,7 +27,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 //I needed to add this which just sends the keycode for LT if the key is held longer than the TAPPING_TERM.
 //It's almost as if the TAPPING_TERM is being overridden from 200ms somewhere else because my thumb keys behave like there is no TAPPING_TERM.
-//#define RETRO_TAPPING
+#define RETRO_TAPPING
 
 //OLD: Used on v0.4.1 of sm_td
 //#define SMTD_GLOBAL_TAP_TERM 200 //(default is TAPPING_TERM) which is 200
@@ -45,7 +45,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //#define MAX_DEFERRED_EXECUTORS 10
 
 #define DOUBLE_TAP_SHIFT_TURNS_ON_CAPS_WORD
-#define SPLIT_LAYER_STATE_ENABLE
 
 #ifdef RGBLIGHT_ENABLE
     #define RGBLIGHT_EFFECT_BREATHING
@@ -65,7 +64,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #endif
 
 #ifdef RGB_MATRIX_ENABLE
+   #define SPLIT_LAYER_STATE_ENABLE
+   #define SPLIT_MODS_ENABLE //allows mods to address leds on the second side.
    #define RGB_MATRIX_KEYPRESSES // reacts to keypresses
+   #define SPLIT_LED_STATE_ENABLE //allows caps/scroll lock to address leds on the second side.
 // #   define RGB_MATRIX_KEYRELEASES // reacts to keyreleases (instead of keypresses)
    #define RGB_MATRIX_SLEEP // turn off effects when suspended
    #define RGB_MATRIX_FRAMEBUFFER_EFFECTS
@@ -76,7 +78,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
    #define RGB_MATRIX_SAT_STEP 8
    #define RGB_MATRIX_VAL_STEP 8
    #define RGB_MATRIX_SPD_STEP 10
-   #define SPLIT_MODS_ENABLE //allows mods to address leds on the second side.
 
     /* Enable the animations you want/need.  You may need to enable only a small number of these because       *
  * they take up a lot of space.  Enable and confirm that you can still successfully compile your firmware. */
